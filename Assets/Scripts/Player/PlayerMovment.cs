@@ -28,8 +28,8 @@ public class PlayerMovment : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            isJumping = isJumping == 0 ? 1 : isJumping;
             jump = true;
-            isJumping = 1;
         }
         if (Input.GetButtonDown("Crouch"))
         {

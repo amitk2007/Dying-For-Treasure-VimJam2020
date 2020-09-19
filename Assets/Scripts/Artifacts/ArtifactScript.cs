@@ -26,7 +26,7 @@ public class ArtifactScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Collided with player, time to bestow curse on him and give him artifact
-        if (collision.tag=="Player")
+        if (collision.tag == "Player")
         {
             collision.GetComponent<PlayerArtifacts>().GivePlayerArtifact(MyArtifact);
             if (myArtifactType == ArtifactType.Poison)

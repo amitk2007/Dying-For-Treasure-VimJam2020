@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 73bdd616869fbd540a760f26bd7f3d06
+guid: 7de8071fc3b6f3142988b75403955267
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3287765680482885720
-    second: Walking animation_0
+      213: -769739562176370030
+    second: walking I guess_0
   - first:
-      213: -3920639769306789608
-    second: Walking animation_1
+      213: 8656904785071466635
+    second: walking I guess_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -95,7 +95,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Walking animation_0
+      name: walking I guess_0
       rect:
         serializedVersion: 2
         x: 0
@@ -109,14 +109,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8afd81e68828f52d0800000000000000
-      internalID: -3287765680482885720
+      spriteID: 29aa9ea42f55155f0800000000000000
+      internalID: -769739562176370030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Walking animation_1
+      name: walking I guess_1
       rect:
         serializedVersion: 2
         x: 0
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 819033af6e61799c0800000000000000
-      internalID: -3920639769306789608
+      spriteID: b8860982901832870800000000000000
+      internalID: 8656904785071466635
       vertices: []
       indices: 
       edges: []

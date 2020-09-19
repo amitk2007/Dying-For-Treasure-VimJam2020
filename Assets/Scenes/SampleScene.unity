@@ -123,6 +123,30 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &69152564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8378972030969953310, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
+  m_PrefabInstance: {fileID: 8378972031719490716}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &69152572
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69152564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8aef35d213177f84e82a52de2396576f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &453739605
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,6 +3061,10 @@ PrefabInstance:
       propertyPath: healthSliderUI
       value: 
       objectReference: {fileID: 1334065197}
+    - target: {fileID: 8378972030969953307, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 69152572}
     - target: {fileID: 8378972030969953310, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_Name
       value: Player

@@ -6,10 +6,15 @@ public class PlayerMovment : MonoBehaviour
 {
     public CharacterController controller;
     public float playerSpeed = 40f;
+    public Animator animator;
 
     float horizontalMove = 0f;
     bool jump = false;
+    int isJumping = -1;
     bool crouch = false;
+
+    int state = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,7 @@ public class PlayerMovment : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
+            isJumping = 1;
         }
         if (Input.GetButtonDown("Crouch"))
         {
@@ -33,12 +39,27 @@ public class PlayerMovment : MonoBehaviour
         {
             crouch = false;
         }
+
+        #region Animation
+        state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
+        state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
+        animator.SetInteger("State", state);
+        #endregion
     }
 
     private void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+    }
+
+    public void OnLanding()
+    {
+        isJumping++;
+        if (isJumping == 3)
+        {
+            isJumping = 0;
+        }
     }
 
 }

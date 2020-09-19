@@ -11,10 +11,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private int maxLife = 10;// Field is serialized so health can be changed if needed
     private int currentLife = 0;
     [SerializeField] private Slider healthSliderUI; //In Editor, slider object should be dragged in here.
+    private WinLoseManager myWinLoseManager;
 
     //In the beginning we will set up player with full health & update UI
     void Start()
     {
+        myWinLoseManager = WinLoseManager.winLoseManager;
         currentLife = maxLife;
         UpdateUI();
     }
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if (!IsPlayerAlive())
         {
             //Trigger lose condition
+            myWinLoseManager.DoLose();
             //Trigger death animation
         }
         else
@@ -42,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
 
     private bool IsPlayerAlive()
     {
-        return currentLife == 0;
+        return currentLife != 0;
     }
 
     private void UpdateUI()

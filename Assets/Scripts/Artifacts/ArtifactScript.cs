@@ -28,7 +28,9 @@ public class ArtifactScript : MonoBehaviour
         //Collided with player, time to bestow curse on him and give him artifact
         if (collision.tag=="Player")
         {
-
+            collision.GetComponent<PlayerArtifacts>().GivePlayerArtifact(MyArtifact);
+            if (myArtifactType == ArtifactType.Poison)
+                Destroy(gameObject);
         }
     }
 }

@@ -10,6 +10,7 @@ public enum ArtifactType { Poison }
 // 2. Add synonims for your artifact & to use its synonims in the switch case inside GenerateName
 // 3. Add its range of values to the switch case inside GenerateValue
 // 4. Add its sprite WITH THE NAME MATCHING THE ArtifactType ENUM to the folder resources/ArtifactSprites.
+// 5. Add behavior of specific artifact either to PlayerArtifacts script under HandleArtifactCurse or under unique script
 
 public class Artifact
 {

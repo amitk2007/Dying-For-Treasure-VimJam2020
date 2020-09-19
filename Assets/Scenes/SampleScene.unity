@@ -1223,7 +1223,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.015031289, y: 0.7740046, z: -10.0668745}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2909,26 +2909,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
   m_PrefabInstance: {fileID: 8378972031719490716}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1979236774 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8378972030969953310, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-  m_PrefabInstance: {fileID: 8378972031719490716}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1979236782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979236774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 453d216cd8deb28438c7c5e48971e20c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PoisonDamageIntervals: 2
-  PoisonDamage: 1
-  PoisonGreenPercentage: 0.8
 --- !u!1001 &5376459020872402488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2946,15 +2926,15 @@ PrefabInstance:
       objectReference: {fileID: 1836546186}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.015031289
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7740046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10.0668745
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2997,21 +2977,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8378972030969953300, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_AirControl
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.015031289
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.7740046
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.066874176
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3044,26 +3020,6 @@ PrefabInstance:
     - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953305, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953305, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8378972030969953306, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: healthSliderUI

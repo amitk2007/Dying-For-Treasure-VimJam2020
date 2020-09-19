@@ -12,11 +12,13 @@ public class PlayerArtifacts : MonoBehaviour
     [SerializeField] private int PoisonDamage = 1;
     [SerializeField] private float PoisonGreenPercentage = 0.5f;
     private Dictionary<Artifact, float> poisonArtifactTimers;
+    private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
 
     //When starting, reset all artifacts and artifact effects
     private void Start()
     {
         ClearPlayerArtifacts();
+        myPlayerCanvasAnimationmanager = this.GetComponentInChildren<PlayerCanvasAnimationManager>();
     }
 
     public void ClearPlayerArtifacts()
@@ -28,6 +30,7 @@ public class PlayerArtifacts : MonoBehaviour
     public void GivePlayerArtifact(Artifact artifact)
     {
         myArtifacts.Add(artifact);
+        myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimationManager.PlayerCanvasAnimation.ItemFound, artifact.GetName());
     }
 
     //Returns the total value of all the artifacts the player owns

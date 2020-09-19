@@ -1,8 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
-<<<<<<< HEAD
---- !u!1 &852188299174769318
-=======
 --- !u!1 &2398670153867308880
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +267,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8378972030969953310
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -278,7 +274,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 271704535539335105}
   m_Layer: 0
   m_Name: Ground Check
@@ -349,18 +344,6 @@ GameObject:
   - component: {fileID: 3286577771864052416}
   - component: {fileID: 1777916049181422943}
   - component: {fileID: 7134948506859451717}
-=======
-  - component: {fileID: 8378972030969953302}
-  - component: {fileID: 8378972030969953301}
-  - component: {fileID: 8378972030969953300}
-  - component: {fileID: 8378972030969953307}
-  - component: {fileID: 8378972030969953306}
-  - component: {fileID: 774926743620017507}
-  - component: {fileID: 1979236782}
-  - component: {fileID: 8378972030969953305}
-  - component: {fileID: 8378972030969953304}
-  - component: {fileID: 8378972030969953311}
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
   m_Layer: 8
   m_Name: Player 1
   m_TagString: Player
@@ -376,20 +359,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7134948506859451725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.015031289, y: -2.44, z: -0.066874176}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 2280311736874648471}
-  - {fileID: 271704535539335105}
-=======
   m_LocalPosition: {x: -0.015031289, y: 0.7740046, z: -0.066874176}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8378972031304307631}
   - {fileID: 8378972032402386232}
   - {fileID: 7751142948605477018}
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -529,9 +504,6 @@ MonoBehaviour:
   PoisonDamageIntervals: 2
   PoisonDamage: 1
   PoisonGreenPercentage: 0.5
-<<<<<<< HEAD
---- !u!50 &8191034560523052148
-=======
 --- !u!114 &1979236782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,7 +520,6 @@ MonoBehaviour:
   PoisonDamage: 1
   PoisonGreenPercentage: 0.8
 --- !u!50 &8378972030969953305
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

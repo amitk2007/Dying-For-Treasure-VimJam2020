@@ -154,4 +154,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c26b8f5eaebbf419511341cab2a8d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bolderDamage: 3
   TTL: 6

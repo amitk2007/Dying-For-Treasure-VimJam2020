@@ -345,6 +345,7 @@ MonoBehaviour:
   WalkSlowMultiplier: 0.6
   JumpSlowMultiplier: 0.75
   slowArtifactOnHeadPrefab: {fileID: 2243205590215983873, guid: 712eb560a41198744aac59e320902a15, type: 3}
+  flyingArtifactPrefab: {fileID: -4916131365568317662, guid: fbdd2d9086396bb49ae81094aade54bc, type: 3}
 --- !u!114 &-6339575943454235109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -594,3 +595,4 @@ MonoBehaviour:
   WalkSlowMultiplier: 0.5
   JumpSlowMultiplier: 0.5
   slowArtifactOnHeadPrefab: {fileID: 0}
+  flyingArtifactPrefab: {fileID: 0}

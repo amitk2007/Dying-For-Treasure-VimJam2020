@@ -14,6 +14,12 @@ public class PlayerArtifacts : MonoBehaviour
     private Dictionary<Artifact, float> poisonArtifactTimers;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
 
+    //Parameters specific to slow artifacts
+    [SerializeField] private float WalkSlowMultiplier = 0.5f;
+    [SerializeField] private float JumpSlowMultiplier = 0.5f;
+    [SerializeField] private SlowArtifactOnHeadScript slowArtifactOnHeadPrefab;
+    private int slowArtifactsCarrying = 0;
+
     //When starting, reset all artifacts and artifact effects
     private void Start()
     {
@@ -25,12 +31,13 @@ public class PlayerArtifacts : MonoBehaviour
     {
         myArtifacts = new List<Artifact>();
         poisonArtifactTimers = new Dictionary<Artifact, float>();
+        slowArtifactsCarrying = 0;
     }
 
     public void GivePlayerArtifact(Artifact artifact)
     {
         myArtifacts.Add(artifact);
-        myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimationManager.PlayerCanvasAnimation.ItemFound, artifact.GetName());
+        myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.ItemFound, artifact.GetName());
     }
 
     //Returns the total value of all the artifacts the player owns
@@ -71,5 +78,18 @@ public class PlayerArtifacts : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    //Method is called by slow artifact picked up right before it destroys itself
+    public void BestowSlowCurse()
+    {
+        //For slow, our effect is as follows:
+        // 1. Slow down player by X
+        // 2. Slow down player jump by X
+        slowArtifactsCarrying++;
+        this.GetComponent<PlayerMovment>().SetPlayerSpeed(this.GetComponent<PlayerMovment>().GetPlayerSpeed() * WalkSlowMultiplier);
+        this.GetComponent<CharacterController>().SetJumpForce(this.GetComponent<CharacterController>().GetJumpForce() * JumpSlowMultiplier);
+        GameObject newSlowArtifact = (Instantiate(slowArtifactOnHeadPrefab.gameObject, transform.position + new Vector3(0, slowArtifactsCarrying,0), transform.rotation)) as GameObject;
+        newSlowArtifact.GetComponent<SlowArtifactOnHeadScript>().SetPlayerToFollow(transform, slowArtifactsCarrying);
     }
 }

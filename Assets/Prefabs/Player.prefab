@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 7134948506859451725}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.015031289, y: 0.7740046, z: -0.066874176}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7751142948605477018}
   - {fileID: 271704535539335105}
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8e495d63ab3fe4cab9fe6d4fee21b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_MaxJumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -309,8 +309,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8685656032785424156}
+<<<<<<< HEAD
   playerSpeed: 40
   playerClimbingSpeed: 2.5
+=======
+  MaxPlayerSpeed: 40
+>>>>>>> b7bc433bea267590f8722f7f9978a9d548e6a60e
   animator: {fileID: 7134948506859451717}
 --- !u!114 &2561493112428033870
 MonoBehaviour:
@@ -342,6 +346,9 @@ MonoBehaviour:
   PoisonDamageIntervals: 2
   PoisonDamage: 1
   PoisonGreenPercentage: 0.5
+  WalkSlowMultiplier: 0.6
+  JumpSlowMultiplier: 0.75
+  slowArtifactOnHeadPrefab: {fileID: 2243205590215983873, guid: 712eb560a41198744aac59e320902a15, type: 3}
 --- !u!70 &5924583803030896317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -576,3 +583,6 @@ MonoBehaviour:
   PoisonDamageIntervals: 2
   PoisonDamage: 1
   PoisonGreenPercentage: 0.8
+  WalkSlowMultiplier: 0.5
+  JumpSlowMultiplier: 0.5
+  slowArtifactOnHeadPrefab: {fileID: 0}

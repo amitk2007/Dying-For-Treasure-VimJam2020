@@ -13,14 +13,14 @@ public class ArtifactScript : MonoBehaviour
     void Start()
     {
         MyArtifact = new Artifact(myArtifactType);
-        SetupArtifactObject();
+        SetupArtifactObject(this.gameObject, MyArtifact);
     }
 
-    private void SetupArtifactObject()
+    public static void SetupArtifactObject(GameObject artifactObject, Artifact artifact)
     {
-        this.name = "Artifact: " + MyArtifact.GetName();
-        this.GetComponent<SpriteRenderer>().color = MyArtifact.GetColor();
-        this.GetComponent<SpriteRenderer>().sprite = MyArtifact.GetSprite();
+        artifactObject.name = "Artifact: " + artifact.GetName();
+        artifactObject.GetComponent<SpriteRenderer>().color = artifact.GetColor();
+        artifactObject.GetComponent<SpriteRenderer>().sprite = artifact.GetSprite();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -31,6 +31,11 @@ public class ArtifactScript : MonoBehaviour
             collision.GetComponent<PlayerArtifacts>().GivePlayerArtifact(MyArtifact);
             if (myArtifactType == ArtifactType.Poison)
                 Destroy(gameObject);
+            else if (myArtifactType == ArtifactType.Slow)
+            {
+                collision.GetComponent<PlayerArtifacts>().BestowSlowCurse();
+                Destroy(gameObject);
+            }
         }
     }
 }

@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         this.GetComponent<PlayerMovment>().enabled = false;
         this.GetComponent<CharacterController>().enabled = false;
         //Wait for a second so we can watch the death animation
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
         //Trigger lose condition
         myWinLoseManager.DoLose();
     }

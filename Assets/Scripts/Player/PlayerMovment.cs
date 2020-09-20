@@ -33,7 +33,7 @@ public class PlayerMovment : MonoBehaviour
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
         verticalMove = isInLadder ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
 
-        if (Input.GetButtonDown("Jump") && isInLadder == false)
+        if (Input.GetButtonDown("Jump") /*&& isInLadder == false*/)
         {
             isJumping = isJumping == 0 ? 1 : isJumping;
             jump = true;
@@ -57,11 +57,11 @@ public class PlayerMovment : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         if (isInLadder)
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));
         }
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
 
@@ -76,15 +76,20 @@ public class PlayerMovment : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        isInLadder = true;
-        GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
-        GetComponent<Rigidbody2D>().gravityScale = 0;
+        if (collision.transform.tag == "Ladder")
+        {
+            isInLadder = true;
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+            GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isInLadder = false;
-        GetComponent<Rigidbody2D>().gravityScale = gravityScale;
-
+        if (collision.transform.tag == "Ladder")
+        {
+            isInLadder = false;
+            GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+        }
     }
 
 

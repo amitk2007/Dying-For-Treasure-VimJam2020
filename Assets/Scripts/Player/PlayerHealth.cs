@@ -39,9 +39,7 @@ public class PlayerHealth : MonoBehaviour
             UpdateUI();
             if (!IsPlayerAlive())
             {
-                //Trigger lose condition
-                myWinLoseManager.DoLose();
-                //Trigger death animation
+                StartCoroutine(KillPlayer());
             }
             else
             {
@@ -51,6 +49,19 @@ public class PlayerHealth : MonoBehaviour
                 //Perhaps stop or knock back player or something
             }
         }
+    }
+
+    private IEnumerator KillPlayer()
+    {
+        //Trigger death animation
+
+        //Disable player input
+        this.GetComponent<PlayerMovment>().enabled = false;
+        this.GetComponent<CharacterController>().enabled = false;
+        //Wait for a second so we can watch the death animation
+        yield return new WaitForSeconds(1f);
+        //Trigger lose condition
+        myWinLoseManager.DoLose();
     }
 
     private bool IsPlayerAlive()

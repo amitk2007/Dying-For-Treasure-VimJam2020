@@ -30,7 +30,7 @@ public class PlayerArtifacts : MonoBehaviour
     public void GivePlayerArtifact(Artifact artifact)
     {
         myArtifacts.Add(artifact);
-        myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimationManager.PlayerCanvasAnimation.ItemFound, artifact.GetName());
+        myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.ItemFound, artifact.GetName());
     }
 
     //Returns the total value of all the artifacts the player owns

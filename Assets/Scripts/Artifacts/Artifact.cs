@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ArtifactType { Poison }
 
 //This script contains the artifact class, which contains all the data relevant to identifying an artifact.
 //If you are adding a new artifact type, this is where to do it. You will need to:

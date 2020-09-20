@@ -38,9 +38,26 @@ public class PlayerArtifacts : MonoBehaviour
 
     public void GivePlayerArtifact(Artifact artifact)
     {
-        myArtifacts.Add(artifact);
         myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.ItemFound, artifact.GetName());
         myPlayerAnimationmanager.PlayNonInterruptAnimation(PlayerAnimationState.victory, PlayerAnimationState.idle);
+        StartCoroutine(ArtifactAnimation(artifact));
+    }
+
+    private IEnumerator ArtifactAnimation(Artifact artifact)
+    {
+
+        this.GetComponent<PlayerMovment>().enabled = false;
+        this.GetComponent<CharacterController>().enabled = false;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        yield return new WaitForSeconds(1f);
+        GameObject animArtifact = (Instantiate(new GameObject(), transform.position + new Vector3(0, 1, 0), transform.rotation)) as GameObject;
+        animArtifact.AddComponent<SpriteRenderer>();
+        ArtifactScript.SetupArtifactObject(animArtifact, artifact);
+        yield return new WaitForSeconds(1f);
+        myArtifacts.Add(artifact);
+        this.GetComponent<PlayerMovment>().enabled = true;
+        this.GetComponent<CharacterController>().enabled = true;
+        Destroy(animArtifact);
     }
 
     //Returns the total value of all the artifacts the player owns

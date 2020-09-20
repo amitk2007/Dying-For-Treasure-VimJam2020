@@ -3061,6 +3061,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8378972030969953306, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
+      propertyPath: healthSliderUI
+      value: 
+      objectReference: {fileID: 1334065197}
+    - target: {fileID: 8378972030969953310, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632961, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_Name
       value: CM vcam1
@@ -3112,14 +3120,6 @@ PrefabInstance:
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8378972030969953306, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: healthSliderUI
-      value: 
-      objectReference: {fileID: 1334065197}
-    - target: {fileID: 8378972030969953310, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
-      propertyPath: m_Name
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}

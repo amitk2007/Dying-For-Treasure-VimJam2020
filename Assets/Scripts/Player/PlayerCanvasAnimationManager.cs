@@ -34,6 +34,7 @@ public class PlayerCanvasAnimationManager : MonoBehaviour
 
     public void PlayAnimation(PlayerCanvasAnimation playerCanvasAnimation, string text = "")
     {
+        Debug.Log("Playing animation! " + playerCanvasAnimation.ToString());
         myText.text = text;
         myAnimator.SetInteger("PlayerCanvasState", GetAnimationIndex(playerCanvasAnimation));
     }

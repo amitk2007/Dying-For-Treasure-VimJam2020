@@ -11,7 +11,6 @@ public class PlayerMovment : MonoBehaviour
     private float playerSpeed;
     public Animator animator;
 
-
     int state = 0;
 
     float horizontalMove = 0f;
@@ -47,7 +46,7 @@ public class PlayerMovment : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
         verticalMove = isInLadder ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
-
+        
         if (Input.GetButtonDown("Jump") /*&& isInLadder == false*/)
         {
             isJumping = isJumping == 0 ? 1 : isJumping;
@@ -65,7 +64,7 @@ public class PlayerMovment : MonoBehaviour
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
-        state = playerClimbingSpeed != 0 ? (int)PlayerAnimationState.climbing : state;
+        state = verticalMove != 0 ? (int)PlayerAnimationState.climbing : state;
         animator.SetInteger("State", state);
         #endregion
     }

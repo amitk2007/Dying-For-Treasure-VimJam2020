@@ -2909,16 +2909,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!1001 &1701051078
-=======
 --- !u!4 &1836546186 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
   m_PrefabInstance: {fileID: 8378972031719490716}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5376459020872402488
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -2935,19 +2931,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7134948505657892149, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
-      value: -2.44
-=======
       value: 0
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
       objectReference: {fileID: 0}
     - target: {fileID: 7134948505657892149, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-      value: -0.066874176
-=======
       value: -10
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
       objectReference: {fileID: 0}
     - target: {fileID: 7134948505657892149, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -2994,7 +2982,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 5376459020762632961, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_Name
       value: CM vcam1
@@ -3004,27 +2991,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 76329971}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
-=======
-    - target: {fileID: 8378972030969953302, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalPosition.y
-<<<<<<< HEAD
-      value: -2.44
-=======
       value: 0
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalPosition.z
-<<<<<<< HEAD
-      value: -10.0668745
-=======
       value: 0
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
       objectReference: {fileID: 0}
     - target: {fileID: 5376459020762632963, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}
       propertyPath: m_LocalRotation.x
@@ -3058,8 +3034,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
     - target: {fileID: 8378972030969953306, guid: 95b3d565dbf49b54281dd3c60ed19c23, type: 3}
       propertyPath: healthSliderUI
       value: 
@@ -3068,6 +3042,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
->>>>>>> 94715d63093bca6b0cf0e8187a9a89b394f32a76
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfa039dd293e6014a9c339fec2cff4fc, type: 3}

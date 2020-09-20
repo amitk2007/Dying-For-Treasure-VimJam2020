@@ -33,7 +33,7 @@ public class BolderCreatorScript : MonoBehaviour
     public void CreateBolder()
     {
         print("creating");
-        thisBolder = Instantiate(bolder);
+        thisBolder = Instantiate(bolder,this.transform.localPosition,Quaternion.identity);
         thisBolder.GetComponent<Rigidbody2D>().AddForce(startForce);
     }
 }

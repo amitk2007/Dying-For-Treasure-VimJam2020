@@ -310,6 +310,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8685656032785424156}
   playerSpeed: 40
+  playerClimbingSpeed: 2.5
   animator: {fileID: 7134948506859451717}
 --- !u!114 &2561493112428033870
 MonoBehaviour:

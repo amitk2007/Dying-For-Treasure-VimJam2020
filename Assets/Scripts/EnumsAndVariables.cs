@@ -10,7 +10,8 @@ public enum PlayerAnimationState
     jump,
     hurt,
     death,
-    victory
+    victory,
+    climbing
 }
 
 public class EnumsAndVariables : MonoBehaviour

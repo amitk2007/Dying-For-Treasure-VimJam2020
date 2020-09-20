@@ -62,6 +62,7 @@ public class PlayerMovment : MonoBehaviour
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
+        Debug.Log("Is jumping: " + isJumping + ", state: " + state);
         state = verticalMove != 0 ? (int)PlayerAnimationState.climbing : state;
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion

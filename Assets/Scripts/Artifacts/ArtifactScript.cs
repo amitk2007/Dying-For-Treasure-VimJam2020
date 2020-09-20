@@ -36,6 +36,10 @@ public class ArtifactScript : MonoBehaviour
                 collision.GetComponent<PlayerArtifacts>().BestowSlowCurse();
                 Destroy(gameObject);
             }
+            else if (myArtifactType == ArtifactType.Flying)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

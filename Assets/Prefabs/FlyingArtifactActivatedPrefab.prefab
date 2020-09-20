@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4748164896790098302}
   - component: {fileID: 4748164896790098301}
   - component: {fileID: -4916131365568317662}
+  - component: {fileID: 5136552063451029184}
   m_Layer: 8
   m_Name: FlyingArtifactActivatedPrefab
   m_TagString: Untagged
@@ -95,3 +96,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8622a7daeb11a459fb38349dfc21fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackingIntervals: 4.5
+  MaxNormalStepSpeed: 3
+  MaxAttackStepSpeed: 20
+  OrbitRadius: 5
+  OrbitSafezone: 0.5
+  OrbitFrequency: 0.4
+  Damage: 2
+  PushForce: 500
+  targetLineSpritePrefab: {fileID: 5623735261370720936, guid: cf9d4a3c93d826f4195f674fa049ff04, type: 3}
+--- !u!60 &5136552063451029184
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4748164896790098303}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.4427541, y: 0.39123273}
+      - {x: -0.3207544, y: 0.0005528927}
+      - {x: -0.50572455, y: -0.31442124}
+      - {x: -0.2318852, y: -0.32253766}
+      - {x: 0.08351636, y: -0.3769213}
+      - {x: 0.43416727, y: -0.20039994}
+      - {x: 0.5028622, y: 0.07685065}
+      - {x: -0.0028229952, y: 0.45706558}

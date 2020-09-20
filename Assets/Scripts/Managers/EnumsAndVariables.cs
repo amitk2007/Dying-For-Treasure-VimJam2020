@@ -27,3 +27,9 @@ public enum ArtifactType {
     Slow,
     Flying
 }
+
+public class LevelList
+{
+    //Add new strings here when new levels are added to game!
+    public static string[] Levels = { "FirstLevel"};
+}

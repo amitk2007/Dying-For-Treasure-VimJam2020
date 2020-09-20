@@ -41,6 +41,11 @@ public class PlayerArtifacts : MonoBehaviour
         slowArtifactsCarrying = 0;
     }
 
+    public List<Artifact> GetArtifacts()
+    {
+        return myArtifacts;
+    }
+
     public void GivePlayerArtifact(Artifact artifact)
     {
         myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.ItemFound, artifact.GetName());
@@ -64,6 +69,11 @@ public class PlayerArtifacts : MonoBehaviour
         this.GetComponent<PlayerMovment>().enabled = true;
         this.GetComponent<CharacterController>().enabled = true;
         Destroy(animArtifact);
+    }
+
+    public bool HasArtifacts()
+    {
+        return myArtifacts.Count > 0;
     }
 
     //Returns the total value of all the artifacts the player owns

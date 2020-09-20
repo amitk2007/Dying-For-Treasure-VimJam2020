@@ -15,12 +15,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private Slider healthSliderUI; //In Editor, slider object should be dragged in here.
     private WinLoseManager myWinLoseManager;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
+    private PlayerAnimationManager myPlayerAnimationmanager;
 
     //In the beginning we will set up player with full health & update UI
     void Start()
     {
         myWinLoseManager = WinLoseManager.winLoseManager;
         myPlayerCanvasAnimationmanager = this.GetComponentInChildren<PlayerCanvasAnimationManager>();
+        myPlayerAnimationmanager = this.GetComponent<PlayerAnimationManager>();
         currentLife = maxLife;
         UpdateUI();
     }
@@ -45,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 //Trigger damage animation
                 myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.DamageTaken, "-" + damage.ToString());
+                myPlayerAnimationmanager.PlayNonInterruptAnimation(PlayerAnimationState.hurt, PlayerAnimationState.idle);
                 StartCoroutine(InvinsibilityTimer());
                 //Perhaps stop or knock back player or something
             }
@@ -54,7 +57,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator KillPlayer()
     {
         //Trigger death animation
-
+        myPlayerAnimationmanager.PlayNonInterruptAnimation(PlayerAnimationState.death, PlayerAnimationState.death);
         //Disable player input
         this.GetComponent<PlayerMovment>().enabled = false;
         this.GetComponent<CharacterController>().enabled = false;
@@ -84,7 +87,7 @@ public class PlayerHealth : MonoBehaviour
         while(invinsibilityTimer > 0)
         {
             invinsibilityTimer = Mathf.Clamp(invinsibilityTimer - Time.deltaTime, 0f, InvinsibilityTime);
-            if (invinsibilityTimer % 0.5f > 0.25f)
+            if (invinsibilityTimer % 0.25f > 0.125f)
                 this.GetComponent<SpriteRenderer>().color = Color.clear;
             else
                 this.GetComponent<SpriteRenderer>().color = Color.white;

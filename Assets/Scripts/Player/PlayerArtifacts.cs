@@ -13,6 +13,7 @@ public class PlayerArtifacts : MonoBehaviour
     [SerializeField] private float PoisonGreenPercentage = 0.5f;
     private Dictionary<Artifact, float> poisonArtifactTimers;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
+    private PlayerAnimationManager myPlayerAnimationmanager;
 
     //Parameters specific to slow artifacts
     [SerializeField] private float WalkSlowMultiplier = 0.5f;
@@ -25,6 +26,7 @@ public class PlayerArtifacts : MonoBehaviour
     {
         ClearPlayerArtifacts();
         myPlayerCanvasAnimationmanager = this.GetComponentInChildren<PlayerCanvasAnimationManager>();
+        myPlayerAnimationmanager = this.GetComponent<PlayerAnimationManager>();
     }
 
     public void ClearPlayerArtifacts()
@@ -38,6 +40,7 @@ public class PlayerArtifacts : MonoBehaviour
     {
         myArtifacts.Add(artifact);
         myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.ItemFound, artifact.GetName());
+        myPlayerAnimationmanager.PlayNonInterruptAnimation(PlayerAnimationState.victory, PlayerAnimationState.idle);
     }
 
     //Returns the total value of all the artifacts the player owns

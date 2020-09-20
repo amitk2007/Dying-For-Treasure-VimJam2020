@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 7134948506859451720}
   - component: {fileID: 2561493112428033870}
   - component: {fileID: 2444552380472295406}
+  - component: {fileID: -6339575943454235109}
   - component: {fileID: 5924583803030896317}
   - component: {fileID: 7134948506859451717}
   - component: {fileID: 8378972030969953305}
@@ -309,10 +310,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8685656032785424156}
-  playerSpeed: 40
   playerClimbingSpeed: 2.5
   MaxPlayerSpeed: 40
-  animator: {fileID: 7134948506859451717}
 --- !u!114 &2561493112428033870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +345,18 @@ MonoBehaviour:
   WalkSlowMultiplier: 0.6
   JumpSlowMultiplier: 0.75
   slowArtifactOnHeadPrefab: {fileID: 2243205590215983873, guid: 712eb560a41198744aac59e320902a15, type: 3}
+--- !u!114 &-6339575943454235109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134948506859451725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 288b9fa0229417842b526f046022282a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &5924583803030896317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

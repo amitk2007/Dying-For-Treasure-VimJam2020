@@ -9,8 +9,6 @@ public class PlayerMovment : MonoBehaviour
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
-    public Animator animator;
-
     int state = 0;
 
     float horizontalMove = 0f;
@@ -65,7 +63,7 @@ public class PlayerMovment : MonoBehaviour
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
         state = verticalMove != 0 ? (int)PlayerAnimationState.climbing : state;
-        animator.SetInteger("State", state);
+        this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
     }
 

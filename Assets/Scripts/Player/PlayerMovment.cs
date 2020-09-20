@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerMovment : MonoBehaviour
 {
     public CharacterController controller;
-    public float playerSpeed = 40f;
+    public float MaxPlayerSpeed = 40f;
+    private float playerSpeed;
     public Animator animator;
 
     float horizontalMove = 0f;
@@ -18,7 +19,17 @@ public class PlayerMovment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerSpeed = MaxPlayerSpeed;
+    }
 
+    public void SetPlayerSpeed(float input)
+    {
+        playerSpeed = input;
+    }
+
+    public float GetPlayerSpeed()
+    {
+        return playerSpeed;
     }
 
     // Update is called once per frame

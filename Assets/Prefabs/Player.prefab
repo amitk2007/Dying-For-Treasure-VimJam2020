@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8e495d63ab3fe4cab9fe6d4fee21b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 400
+  m_MaxJumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8685656032785424156}
-  playerSpeed: 40
+  MaxPlayerSpeed: 40
   animator: {fileID: 7134948506859451717}
 --- !u!114 &2561493112428033870
 MonoBehaviour:
@@ -341,6 +341,9 @@ MonoBehaviour:
   PoisonDamageIntervals: 2
   PoisonDamage: 1
   PoisonGreenPercentage: 0.5
+  WalkSlowMultiplier: 0.6
+  JumpSlowMultiplier: 0.75
+  slowArtifactOnHeadPrefab: {fileID: 2243205590215983873, guid: 712eb560a41198744aac59e320902a15, type: 3}
 --- !u!70 &5924583803030896317
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -575,3 +578,6 @@ MonoBehaviour:
   PoisonDamageIntervals: 2
   PoisonDamage: 1
   PoisonGreenPercentage: 0.8
+  WalkSlowMultiplier: 0.5
+  JumpSlowMultiplier: 0.5
+  slowArtifactOnHeadPrefab: {fileID: 0}

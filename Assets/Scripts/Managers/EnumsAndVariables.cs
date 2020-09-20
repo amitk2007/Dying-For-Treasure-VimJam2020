@@ -24,5 +24,6 @@ public enum PlayerCanvasAnimation {
 //Enum used to describe what type of artifact this is
 public enum ArtifactType {
     Poison,
-    Slow
+    Slow,
+    Flying
 }

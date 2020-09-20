@@ -1223,7 +1223,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 803537095355717769, guid: d5f64279280a01f41af0d5ec0fe110ba, type: 3}
       propertyPath: m_Name
-      value: Artifact
+      value: TestPoisonArtifact
       objectReference: {fileID: 0}
     - target: {fileID: 803537095355717773, guid: d5f64279280a01f41af0d5ec0fe110ba, type: 3}
       propertyPath: m_LocalPosition.x

@@ -15,9 +15,9 @@ public class LevelExitScript : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //When player is detected, the level is complete. NOTE - We may want to change this in the future to allow player to finish level only after aquiring artifact.
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && collision.gameObject.GetComponent<PlayerArtifacts>().HasArtifacts())
         {
-            myWinLoseManager.DoWin();
+            myWinLoseManager.DoWin(collision.gameObject.GetComponent<PlayerArtifacts>().GetArtifacts());
         }
     }
 }

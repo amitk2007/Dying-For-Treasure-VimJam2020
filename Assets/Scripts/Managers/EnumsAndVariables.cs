@@ -24,5 +24,12 @@ public enum PlayerCanvasAnimation {
 //Enum used to describe what type of artifact this is
 public enum ArtifactType {
     Poison,
-    Slow
+    Slow,
+    Flying
+}
+
+public class LevelList
+{
+    //Add new strings here when new levels are added to game!
+    public static string[] Levels = { "Level2"};
 }

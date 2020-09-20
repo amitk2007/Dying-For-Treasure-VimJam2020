@@ -43,7 +43,6 @@ public class PlayerAnimationManager : MonoBehaviour
         SetAnimationState(state);
         yield return new WaitForSeconds(Time.deltaTime);
         float waitTime = animator.GetCurrentAnimatorStateInfo(0).length;// + animator.GetCurrentAnimatorStateInfo(0).normalizedTime;
-        Debug.Log("Wait time for animation will be: " + waitTime);
         yield return new WaitForSeconds(waitTime);
         animator.SetInteger("State", DictionaryAnimationToIndex[afterState]);
     }

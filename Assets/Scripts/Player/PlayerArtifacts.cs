@@ -21,6 +21,10 @@ public class PlayerArtifacts : MonoBehaviour
     [SerializeField] private SlowArtifactOnHeadScript slowArtifactOnHeadPrefab;
     private int slowArtifactsCarrying = 0;
 
+    //Parameters specific to flying artifacts
+    private Dictionary<Artifact, bool> triggeredFlyingCurseDictionary;
+    [SerializeField] private FlyingArtifactScript flyingArtifactPrefab;
+
     //When starting, reset all artifacts and artifact effects
     private void Start()
     {
@@ -33,7 +37,13 @@ public class PlayerArtifacts : MonoBehaviour
     {
         myArtifacts = new List<Artifact>();
         poisonArtifactTimers = new Dictionary<Artifact, float>();
+        triggeredFlyingCurseDictionary = new Dictionary<Artifact, bool>();
         slowArtifactsCarrying = 0;
+    }
+
+    public List<Artifact> GetArtifacts()
+    {
+        return myArtifacts;
     }
 
     public void GivePlayerArtifact(Artifact artifact)
@@ -53,11 +63,17 @@ public class PlayerArtifacts : MonoBehaviour
         GameObject animArtifact = (Instantiate(new GameObject(), transform.position + new Vector3(0, 1, 0), transform.rotation)) as GameObject;
         animArtifact.AddComponent<SpriteRenderer>();
         ArtifactScript.SetupArtifactObject(animArtifact, artifact);
+        animArtifact.GetComponent<SpriteRenderer>().sortingOrder = 2;
         yield return new WaitForSeconds(1f);
         myArtifacts.Add(artifact);
         this.GetComponent<PlayerMovment>().enabled = true;
         this.GetComponent<CharacterController>().enabled = true;
         Destroy(animArtifact);
+    }
+
+    public bool HasArtifacts()
+    {
+        return myArtifacts.Count > 0;
     }
 
     //Returns the total value of all the artifacts the player owns
@@ -97,6 +113,13 @@ public class PlayerArtifacts : MonoBehaviour
                     this.GetComponent<PlayerHealth>().TakeDamage(PoisonDamage);
                 }
                 break;
+            case ArtifactType.Flying:
+                if (!triggeredFlyingCurseDictionary.ContainsKey(artifact) || triggeredFlyingCurseDictionary[artifact] == false)
+                {
+                    triggeredFlyingCurseDictionary[artifact] = true;
+                    BestowFlyingCurse(artifact);
+                }
+                break;
         }
     }
 
@@ -111,5 +134,13 @@ public class PlayerArtifacts : MonoBehaviour
         this.GetComponent<CharacterController>().SetJumpForce(this.GetComponent<CharacterController>().GetJumpForce() * JumpSlowMultiplier);
         GameObject newSlowArtifact = (Instantiate(slowArtifactOnHeadPrefab.gameObject, transform.position + new Vector3(0, slowArtifactsCarrying,0), transform.rotation)) as GameObject;
         newSlowArtifact.GetComponent<SlowArtifactOnHeadScript>().SetPlayerToFollow(transform, slowArtifactsCarrying);
+    }
+
+    //Method is called by flying artifact picked up right before it destroys itself
+    public void BestowFlyingCurse(Artifact artifact)
+    {
+        GameObject newFlyingArtifact = (Instantiate(flyingArtifactPrefab.gameObject, transform.position + new Vector3(0, 1, 0), transform.rotation)) as GameObject;
+        newFlyingArtifact.GetComponent<FlyingArtifactScript>().SetTarget(transform);
+        ArtifactScript.SetupArtifactObject(newFlyingArtifact, artifact);
     }
 }

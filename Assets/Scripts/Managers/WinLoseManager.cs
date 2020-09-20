@@ -8,6 +8,8 @@ public class WinLoseManager : MonoBehaviour
 {
     public static WinLoseManager winLoseManager;//This static manager exists in order to allow other objects in the scene to find this manager instantly, without the need for a reference
     [SerializeField] private Image losePanel;
+    [SerializeField] private Image winPanel;
+
 
     //On awake, we make sure this is the only WinLose manager around.
     private void Awake()
@@ -18,9 +20,11 @@ public class WinLoseManager : MonoBehaviour
             Destroy(this.gameObject);
     }
 
-    public void DoWin()
+    public void DoWin(List<Artifact> artifacts)
     {
         Debug.Log("Win condition reached!");
+        winPanel.gameObject.SetActive(true);
+        winPanel.GetComponent<WinPanelScript>().SetupWinPanel(artifacts);
         //Open win window, pause game
     }
 

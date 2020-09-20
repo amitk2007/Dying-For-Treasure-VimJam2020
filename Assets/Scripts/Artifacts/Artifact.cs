@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum ArtifactType { Poison }
 
 //This script contains the artifact class, which contains all the data relevant to identifying an artifact.
 //If you are adding a new artifact type, this is where to do it. You will need to:
@@ -62,6 +61,9 @@ public class Artifact
             case ArtifactType.Poison:
                 typeSynonim = poisonSynonims[Random.Range(0, poisonSynonims.Length)];
                 break;
+            case ArtifactType.Slow:
+                typeSynonim = slowSynonims[Random.Range(0, slowSynonims.Length)];
+                break;
         }
         if (Random.Range(0, 2) == 0)
             return (peopleNames[Random.Range(0, peopleNames.Length)] + "'s " + typeSynonim + " " + artifactSynonims[Random.Range(0, artifactSynonims.Length)]);
@@ -72,6 +74,7 @@ public class Artifact
     private static string[] peopleNames = { "Solomon", "Goliath", "Gandalf", "Saruman", "Sauron", "David", "Messiah", "Poseidon", "Zeus", "Ares", "Athena", "Bob", "Hades", "EmmetGames", "Titan", "Pepe" };
     private static string[] artifactSynonims = { "Relic", "Antique", "Wonder", "Artifact", "Artifact", "Treasure", "Talisman" };
     private static string[] poisonSynonims = { "Poisonous", "Toxic", "Radioactive", "Entoxicating", "Cursed", "Leeching" };
+    private static string[] slowSynonims = { "Heavy", "Gigantic", "Massive", "Cumbersome", "Fat", "Large" };
 
     private static int GenerateValue(ArtifactType artifactType)
     {
@@ -79,6 +82,8 @@ public class Artifact
         {
             case ArtifactType.Poison:
                 return Random.Range(100, 200);
+            case ArtifactType.Slow:
+                return Random.Range(150, 250);
         }
         return 0;
     }

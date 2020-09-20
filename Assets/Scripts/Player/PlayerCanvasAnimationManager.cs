@@ -7,7 +7,6 @@ using TMPro;
 //It is attached to his local world canvas
 public class PlayerCanvasAnimationManager : MonoBehaviour
 {
-    public enum PlayerCanvasAnimation { Nothing, DamageTaken, ItemFound };
     private static Dictionary<PlayerCanvasAnimation, int> DictionaryAnimationToIndex;
     private Animator myAnimator;
     private TextMeshProUGUI myText;

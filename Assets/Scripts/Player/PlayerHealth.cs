@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
             else
             {
                 //Trigger damage animation
-                myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimationManager.PlayerCanvasAnimation.DamageTaken, "-" + damage.ToString());
+                myPlayerCanvasAnimationmanager.PlayAnimation(PlayerCanvasAnimation.DamageTaken, "-" + damage.ToString());
                 StartCoroutine(InvinsibilityTimer());
                 //Perhaps stop or knock back player or something
             }

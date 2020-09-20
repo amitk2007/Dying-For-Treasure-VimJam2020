@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BolderScript : MonoBehaviour
 {
-    [Range(0,10)]
+    [Range(0, 10)]
     public int bolderDamage;
     [Range(0, 10)]
     public float TTL;
@@ -18,7 +18,7 @@ public class BolderScript : MonoBehaviour
     IEnumerator DestroyThisBolder(float seconds)
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(seconds);
         Destroy(this.gameObject);
     }
 

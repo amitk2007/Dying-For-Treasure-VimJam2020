@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlyingArtifactScript : MonoBehaviour
 {
+    #region Inspector Variables
     [SerializeField] private float AttackingIntervals = 4.5f;
     [SerializeField] private float MaxNormalStepSpeed = 10f;// This value is 10f per second, we will use it in practice multiplied by time.DeltaTime
     [SerializeField] private float MaxAttackStepSpeed = 30f;
@@ -13,10 +14,13 @@ public class FlyingArtifactScript : MonoBehaviour
     [SerializeField] private int Damage = 2;
     [SerializeField] private float PushForce = 200f;
     [SerializeField] private SpriteRenderer targetLineSpritePrefab;
+    #endregion
+    #region Variables
     private float orbitAngle = 0f; //This angle grows as enemy rotates
     private Transform playerTarget;
     private float attackingTimer = 0f;
     private bool attacking = false;
+    #endregion
 
     private void Start()
     {

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerMovment : MonoBehaviour
 {
+    #region Inspector Variables
     public CharacterController controller;
     //public float playerSpeed = 40f;
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
+    #endregion
+    #region Variables
     int state = 0;
 
     float horizontalMove = 0f;
@@ -19,16 +22,17 @@ public class PlayerMovment : MonoBehaviour
 
     bool isInLadder;
     float gravityScale;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
-
         gravityScale = GetComponent<Rigidbody2D>().gravityScale;
 
         playerSpeed = MaxPlayerSpeed;
     }
 
+    #region Get Set
     public void SetPlayerSpeed(float input)
     {
         playerSpeed = input;
@@ -38,13 +42,17 @@ public class PlayerMovment : MonoBehaviour
     {
         return playerSpeed;
     }
+    #endregion
 
     // Update is called once per frame
     void Update()
     {
+        #region Movment Speeds
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
         verticalMove = isInLadder ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
-        
+        #endregion
+
+        #region Keys Press
         if (Input.GetButtonDown("Jump") /*&& isInLadder == false*/)
         {
             isJumping = isJumping == 0 ? 1 : isJumping;
@@ -58,16 +66,17 @@ public class PlayerMovment : MonoBehaviour
         {
             crouch = false;
         }
+        #endregion
 
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
-        //Debug.Log("Is jumping: " + isJumping + ", state: " + state);
-        state = verticalMove != 0 ? (int)PlayerAnimationState.climbing : state;
+        state = isInLadder ? (int)PlayerAnimationState.climbing : state;
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
     }
 
+    //Applay the move speeds and move the player using the player controller
     private void FixedUpdate()
     {
         if (isInLadder)
@@ -78,6 +87,7 @@ public class PlayerMovment : MonoBehaviour
         jump = false;
     }
 
+    //not jumping anymore -> stop jumping animation
     public void OnLanding()
     {
         isJumping++;
@@ -87,6 +97,7 @@ public class PlayerMovment : MonoBehaviour
         }
     }
 
+    //On entering the ladder
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Ladder")
@@ -96,6 +107,8 @@ public class PlayerMovment : MonoBehaviour
             GetComponent<Rigidbody2D>().gravityScale = 0;
         }
     }
+
+    //On exiting the ladder
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.transform.tag == "Ladder")
@@ -104,9 +117,5 @@ public class PlayerMovment : MonoBehaviour
             GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         }
     }
-
-
-
-
 
 }

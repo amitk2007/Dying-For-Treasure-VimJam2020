@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BolderScript : MonoBehaviour
 {
+    #region Inspector Variables
     [Range(0, 10)]
     public int bolderDamage;
     [Range(0, 10)]
     public float TTL;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +17,7 @@ public class BolderScript : MonoBehaviour
         StartCoroutine(DestroyThisBolder(TTL));
     }
 
+    //Destroy this Gameobject after X seconds
     IEnumerator DestroyThisBolder(float seconds)
     {
         //yield on a new YieldInstruction that waits for 5 seconds.
@@ -22,6 +25,7 @@ public class BolderScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    //damage the player on collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player")

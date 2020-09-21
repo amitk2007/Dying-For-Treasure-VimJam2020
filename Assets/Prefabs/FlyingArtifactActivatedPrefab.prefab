@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackingIntervals: 4.5
-  MaxNormalStepSpeed: 3
+  MaxNormalStepSpeed: 7
   MaxAttackStepSpeed: 20
   OrbitRadius: 5
   OrbitSafezone: 0.5

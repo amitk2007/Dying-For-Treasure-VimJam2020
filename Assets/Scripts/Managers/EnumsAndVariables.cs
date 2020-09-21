@@ -34,5 +34,5 @@ public enum ArtifactType
 //Add new strings here when new levels are added to game!
 public class LevelList
 {
-    public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial", "Level2" };
+    public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial","Slow_Tutorial", "Level2" };
 }

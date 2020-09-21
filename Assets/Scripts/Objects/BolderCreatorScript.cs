@@ -10,6 +10,8 @@ public class BolderCreatorScript : MonoBehaviour
     public GameObject bolder;
     public Vector2 startForce;
     [Range(0, 10)]
+    public float StartDelay = 0;
+    [Range(0, 10)]
     public float secondToWait;
     [Range(0, 10)]
     public float BolderTTL = 0;
@@ -23,11 +25,19 @@ public class BolderCreatorScript : MonoBehaviour
     {
         CreateBolder();
         //WaitForSeconds(3);
-        StartCoroutine(CreateBolders(secondToWait));
+        StartCoroutine(CreatorStartDelay(StartDelay));
+    }
+
+    //Delay the first bolder breator cy X second
+    IEnumerator CreatorStartDelay(float secondToWait)
+    {
+            //yield on a new YieldInstruction that waits for 5 seconds.
+            yield return new WaitForSeconds(secondToWait);
+            StartCoroutine(CreateBolders());
     }
 
     //call the creat bolder function every X seconds
-    IEnumerator CreateBolders(float secondToWait)
+    IEnumerator CreateBolders()
     {
         while (true)
         {

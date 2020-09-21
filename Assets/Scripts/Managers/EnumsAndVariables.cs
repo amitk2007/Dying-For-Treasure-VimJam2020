@@ -25,7 +25,8 @@ public enum PlayerCanvasAnimation {
 public enum ArtifactType {
     Poison,
     Slow,
-    Flying
+    Flying,
+    Null
 }
 
 public class LevelList

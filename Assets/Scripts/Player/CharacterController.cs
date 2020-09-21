@@ -65,7 +65,7 @@ public class CharacterController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                Debug.Log("Collided with: " + colliders[i].gameObject);
+                //Debug.Log("Collided with: " + colliders[i].gameObject);
                 m_Grounded = true;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();

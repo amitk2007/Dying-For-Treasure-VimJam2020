@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bolder: {fileID: 8598039570992933832, guid: 6d55c83ee42e1e5438a6e64b958a270d, type: 3}
-  startForce: {x: 200, y: 0}
-  secondToWait: 3
+  startForce: {x: 400, y: 0}
+  secondToWait: 5

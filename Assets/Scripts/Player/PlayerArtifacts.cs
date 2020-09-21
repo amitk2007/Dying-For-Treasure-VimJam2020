@@ -139,6 +139,7 @@ public class PlayerArtifacts : MonoBehaviour
     //Method is called by flying artifact picked up right before it destroys itself
     public void BestowFlyingCurse(Artifact artifact)
     {
+        print("new flying artifact" + transform.name);
         GameObject newFlyingArtifact = (Instantiate(flyingArtifactPrefab.gameObject, transform.position + new Vector3(0, 1, 0), transform.rotation)) as GameObject;
         newFlyingArtifact.GetComponent<FlyingArtifactScript>().SetTarget(transform);
         ArtifactScript.SetupArtifactObject(newFlyingArtifact, artifact);

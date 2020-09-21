@@ -84,7 +84,7 @@ public class FlyingArtifactScript : MonoBehaviour
     private Vector2 GetCirclePoint()
     {
         orbitAngle = (orbitAngle + Time.deltaTime * OrbitFrequency) % 6;
-        Debug.Log("Orbit angle: " + orbitAngle.ToString("0.0"));
+        //Debug.Log("Orbit angle: " + orbitAngle.ToString("0.0"));
         return GetStationaryCirclePoint();
     }
 

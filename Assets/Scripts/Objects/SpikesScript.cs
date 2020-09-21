@@ -31,7 +31,7 @@ public class SpikesScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player" && IsOnTimer == false)
+        if (collision.transform.tag == "Player" /*&& IsOnTimer == false*/)
         {
             GetComponent<Collider2D>().isTrigger = false;
             isInSpikes = false;

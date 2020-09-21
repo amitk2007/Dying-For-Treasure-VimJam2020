@@ -14,4 +14,9 @@ public class GenericButtonClass : MonoBehaviour
     {
         SwapToScene(SceneManager.GetActiveScene().name);
     }
+
+    public static void OpenUrl(string URL)
+    {
+        System.Diagnostics.Process.Start(URL);
+    }
 }

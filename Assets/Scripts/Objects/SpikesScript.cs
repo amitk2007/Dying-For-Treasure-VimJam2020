@@ -12,6 +12,22 @@ public class SpikesScript : MonoBehaviour
 
     bool isInSpikes = false;
 
+    private void Start()
+    {
+        if (IsOnTimer)
+            GetComponent<Collider2D>().isTrigger = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "Player")
+        {
+            isInSpikes = true;
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(spikesDamage);
+            StartCoroutine(SpikesToTriggerOnTime(freeTime, collision.gameObject));
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.tag == "Player")
@@ -31,9 +47,9 @@ public class SpikesScript : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.tag == "Player" /*&& IsOnTimer == false*/)
+        if (collision.transform.tag == "Player" )//&& IsOnTimer == false)
         {
-            GetComponent<Collider2D>().isTrigger = false;
+            //GetComponent<Collider2D>().isTrigger = false;
             isInSpikes = false;
         }
     }
@@ -42,7 +58,7 @@ public class SpikesScript : MonoBehaviour
     {
         while (isInSpikes)
         {
-            GetComponent<Collider2D>().isTrigger = true;
+            //GetComponent<Collider2D>().isTrigger = true;
             //yield on a new YieldInstruction that waits for 5 seconds.
             yield return new WaitForSeconds(seconds);
             if (isInSpikes)
@@ -50,6 +66,6 @@ public class SpikesScript : MonoBehaviour
                 player.GetComponent<PlayerHealth>().TakeDamage(spikesDamage);
             }
         }
-        GetComponent<Collider2D>().isTrigger = false;
+        //GetComponent<Collider2D>().isTrigger = false;
     }
 }

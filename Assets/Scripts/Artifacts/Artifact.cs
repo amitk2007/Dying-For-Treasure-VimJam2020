@@ -67,6 +67,9 @@ public class Artifact
             case ArtifactType.Flying:
                 typeSynonim = flyingSynonims[Random.Range(0, flyingSynonims.Length)];
                 break;
+            case ArtifactType.Null:
+                typeSynonim = nullSynonims[Random.Range(0, nullSynonims.Length)];
+                break;
         }
         if (Random.Range(0, 2) == 0)
             return (peopleNames[Random.Range(0, peopleNames.Length)] + "'s " + typeSynonim + " " + artifactSynonims[Random.Range(0, artifactSynonims.Length)]);
@@ -79,6 +82,7 @@ public class Artifact
     private static string[] poisonSynonims = { "Poisonous", "Toxic", "Radioactive", "Entoxicating", "Cursed", "Leeching" };
     private static string[] slowSynonims = { "Heavy", "Gigantic", "Massive", "Cumbersome", "Fat", "Large" };
     private static string[] flyingSynonims = { "Vengeful", "Hateful", "Evil", "Cursed", "Mean", "Haunted", "Guardian", "Avian", "Flying", "Floating", "Mystical", "Levitating", "Soaring" };
+    private static string[] nullSynonims = { "Ancient" };
 
     private static int GenerateValue(ArtifactType artifactType)
     {
@@ -90,6 +94,8 @@ public class Artifact
                 return Random.Range(150, 250);
             case ArtifactType.Flying:
                 return Random.Range(300, 400);
+            case ArtifactType.Null:
+                return Random.Range(1, 100);
         }
         return 0;
     }

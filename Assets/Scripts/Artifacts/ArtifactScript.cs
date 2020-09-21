@@ -40,6 +40,8 @@ public class ArtifactScript : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            else //Null artifact
+                Destroy(gameObject);
         }
     }
 }

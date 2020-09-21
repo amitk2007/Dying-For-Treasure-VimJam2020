@@ -10,6 +10,9 @@ public class BolderCreatorScript : MonoBehaviour
     public Vector2 startForce;
     [Range(0, 10)]
     public float secondToWait;
+    [Range(0, 10)]
+    public float BolderTTL = 0;
+
     static GameObject thisBolder;
 
     // Start is called before the first frame update
@@ -32,7 +35,11 @@ public class BolderCreatorScript : MonoBehaviour
 
     public void CreateBolder()
     {
-        thisBolder = Instantiate(bolder,this.transform.localPosition,Quaternion.identity);
+        thisBolder = Instantiate(bolder, this.transform.localPosition, Quaternion.identity);
         thisBolder.GetComponent<Rigidbody2D>().AddForce(startForce);
+        if (BolderTTL != 0)
+        {
+            thisBolder.GetComponent<BolderScript>().TTL = BolderTTL;
+        }
     }
 }

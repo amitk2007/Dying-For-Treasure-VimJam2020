@@ -7,6 +7,7 @@ public class GenericButtonClass : MonoBehaviour
 {
     public static void SwapToScene(string SceneName)
     {
+        print(SceneName);
         SceneManager.LoadScene(SceneName);
     }
 

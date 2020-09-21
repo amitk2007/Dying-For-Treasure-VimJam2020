@@ -11,7 +11,7 @@ public class GenericButtonClass : MonoBehaviour
         print(SceneName);
         SceneManager.LoadScene(SceneName);
     }
-    
+
     //Reloads the current scene
     public static void ReloadScene()
     {
@@ -21,5 +21,23 @@ public class GenericButtonClass : MonoBehaviour
     public static void OpenUrl(string URL)
     {
         System.Diagnostics.Process.Start(URL);
+    }
+
+    public static void MoveToNextLevel()
+    {
+        for (int i = 0; i < LevelList.Levels.Length; i++)
+        {
+            if (SceneManager.GetActiveScene().name == LevelList.Levels[i])
+            {
+                if (i + 1 == LevelList.Levels.Length)
+                {
+                    //you finished the game
+                }
+                else
+                {
+                    SwapToScene(LevelList.Levels[i + 1]);
+                }
+            }
+        }
     }
 }

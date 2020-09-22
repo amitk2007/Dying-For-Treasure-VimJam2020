@@ -8,7 +8,6 @@ public class GenericButtonClass : MonoBehaviour
     //move to another scene Using it's name
     public static void SwapToScene(string SceneName)
     {
-        print(SceneName);
         SceneManager.LoadScene(SceneName);
     }
 
@@ -35,9 +34,15 @@ public class GenericButtonClass : MonoBehaviour
                 }
                 else
                 {
+                    LevelList.SetCurrentLevel(i + 1);
                     SwapToScene(LevelList.Levels[i + 1]);
                 }
             }
         }
+    }
+
+    public static void StartGame()
+    {
+        SwapToScene(LevelList.Levels[LevelList.CorrentLevel]);
     }
 }

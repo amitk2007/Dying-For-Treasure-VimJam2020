@@ -35,4 +35,10 @@ public enum ArtifactType
 public class LevelList
 {
     public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial", "Slow_Tutorial", "Level2" };
+    public static int CorrentLevel;
+    public static void SetCurrentLevel(int level)
+    {
+        LoadSettins.SaveIntToPrefs("CorrentLevel", level);
+        CorrentLevel = level;
+    }
 }

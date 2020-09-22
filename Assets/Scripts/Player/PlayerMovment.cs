@@ -10,6 +10,7 @@ public class PlayerMovment : MonoBehaviour
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
+
     #endregion
     #region Variables
     int state = 0;
@@ -17,7 +18,7 @@ public class PlayerMovment : MonoBehaviour
     float horizontalMove = 0f;
     float verticalMove = 0f;
     bool jump = false;
-    int isJumping = -1;
+    int isJumping = 0;
     bool crouch = false;
 
     bool isInLadder;
@@ -53,7 +54,7 @@ public class PlayerMovment : MonoBehaviour
         #endregion
 
         #region Keys Press
-        if (Input.GetButtonDown("Jump") /*&& isInLadder == false*/)
+        if (Input.GetButtonDown("Jump"))
         {
             isJumping = isJumping == 0 ? 1 : isJumping;
             jump = true;
@@ -90,7 +91,8 @@ public class PlayerMovment : MonoBehaviour
     //not jumping anymore -> stop jumping animation
     public void OnLanding()
     {
-        isJumping++;
+        isJumping = isJumping > 0 ? isJumping + 1 : isJumping;
+
         if (isJumping == 3)
         {
             isJumping = 0;
@@ -117,5 +119,4 @@ public class PlayerMovment : MonoBehaviour
             GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         }
     }
-
 }

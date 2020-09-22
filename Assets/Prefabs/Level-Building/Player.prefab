@@ -275,7 +275,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 567
   m_GroundCheck: {fileID: 271704535539335105}
   m_CeilingCheck: {fileID: 2280311736874648471}
   m_CrouchDisableCollider: {fileID: 0}
@@ -312,6 +312,9 @@ MonoBehaviour:
   controller: {fileID: 8685656032785424156}
   playerClimbingSpeed: 2.5
   MaxPlayerSpeed: 40
+  platformLayerMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &2561493112428033870
 MonoBehaviour:
   m_ObjectHideFlags: 0

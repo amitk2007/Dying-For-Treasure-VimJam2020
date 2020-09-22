@@ -47,7 +47,7 @@ public class CharacterController : MonoBehaviour
     {
         return m_JumpForce;
     }
-
+    
     public void SetJumpForce(float input)
     {
         m_JumpForce = input;
@@ -65,7 +65,6 @@ public class CharacterController : MonoBehaviour
         {
             if (colliders[i].gameObject != gameObject)
             {
-                //Debug.Log("Collided with: " + colliders[i].gameObject);
                 m_Grounded = true;
                 if (!wasGrounded)
                     OnLandEvent.Invoke();

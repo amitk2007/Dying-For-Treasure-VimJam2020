@@ -15,22 +15,30 @@ public enum PlayerAnimationState
 }
 
 //Enum used to describe what animation player canvas has
-public enum PlayerCanvasAnimation {
+public enum PlayerCanvasAnimation
+{
     Nothing,
     DamageTaken,
     ItemFound
 };
 
 //Enum used to describe what type of artifact this is
-public enum ArtifactType {
+public enum ArtifactType
+{
     Poison,
     Slow,
     Flying,
     Null
 }
 
+//Add new strings here when new levels are added to game!
 public class LevelList
 {
-    //Add new strings here when new levels are added to game!
-    public static string[] Levels = { "Level2"};
+    public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial", "Slow_Tutorial", "Level2" };
+    public static int CorrentLevel;
+    public static void SetCurrentLevel(int level)
+    {
+        LoadSettins.SaveIntToPrefs("CorrentLevel", level);
+        CorrentLevel = level;
+    }
 }

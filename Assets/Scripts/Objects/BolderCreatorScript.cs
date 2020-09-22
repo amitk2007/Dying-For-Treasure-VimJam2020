@@ -6,24 +6,38 @@ using UnityEngine;
 
 public class BolderCreatorScript : MonoBehaviour
 {
+    #region Inspector Variables
     public GameObject bolder;
     public Vector2 startForce;
+    [Range(0, 10)]
+    public float StartDelay = 0;
     [Range(0, 10)]
     public float secondToWait;
     [Range(0, 10)]
     public float BolderTTL = 0;
-
+    #endregion
+    #region Variables
     static GameObject thisBolder;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         CreateBolder();
         //WaitForSeconds(3);
-        StartCoroutine(CreateBolders(secondToWait));
+        StartCoroutine(CreatorStartDelay(StartDelay));
     }
 
-    IEnumerator CreateBolders(float secondToWait)
+    //Delay the first bolder breator cy X second
+    IEnumerator CreatorStartDelay(float secondToWait)
+    {
+            //yield on a new YieldInstruction that waits for 5 seconds.
+            yield return new WaitForSeconds(secondToWait);
+            StartCoroutine(CreateBolders());
+    }
+
+    //call the creat bolder function every X seconds
+    IEnumerator CreateBolders()
     {
         while (true)
         {
@@ -33,6 +47,7 @@ public class BolderCreatorScript : MonoBehaviour
         }
     }
 
+    //Creat a bolder with start speed and TTL
     public void CreateBolder()
     {
         thisBolder = Instantiate(bolder, this.transform.localPosition, Quaternion.identity);

@@ -7,23 +7,26 @@ public class PlayerArtifacts : MonoBehaviour
 {
     private List<Artifact> myArtifacts;//Contains a list of all the artifacts the player "owns"
 
-    //Parameters specific to poison artifacts
+    #region Parameters specific to poison artifacts
     [SerializeField] private float PoisonDamageIntervals = 2f;
     [SerializeField] private int PoisonDamage = 1;
     [SerializeField] private float PoisonGreenPercentage = 0.5f;
     private Dictionary<Artifact, float> poisonArtifactTimers;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
     private PlayerAnimationManager myPlayerAnimationmanager;
+    #endregion
 
-    //Parameters specific to slow artifacts
+    #region Parameters specific to slow artifacts
     [SerializeField] private float WalkSlowMultiplier = 0.5f;
     [SerializeField] private float JumpSlowMultiplier = 0.5f;
     [SerializeField] private SlowArtifactOnHeadScript slowArtifactOnHeadPrefab;
     private int slowArtifactsCarrying = 0;
+    #endregion
 
-    //Parameters specific to flying artifacts
+    #region Parameters specific to flying artifacts
     private Dictionary<Artifact, bool> triggeredFlyingCurseDictionary;
     [SerializeField] private FlyingArtifactScript flyingArtifactPrefab;
+    #endregion
 
     //When starting, reset all artifacts and artifact effects
     private void Start()

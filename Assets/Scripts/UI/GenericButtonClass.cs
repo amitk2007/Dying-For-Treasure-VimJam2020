@@ -5,9 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class GenericButtonClass : MonoBehaviour
 {
+    private static AudioSource myButtonSfx;
+
+    private void Start()
+    {
+        myButtonSfx = DoNotDestroyButtonAudio.ButtonAudioSource;
+    }
     //move to another scene Using it's name
     public static void SwapToScene(string SceneName)
     {
+        myButtonSfx.Play();
         SceneManager.LoadScene(SceneName);
     }
 

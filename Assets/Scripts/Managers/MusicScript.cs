@@ -12,7 +12,7 @@ public class MusicScript : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
-        if (musicScript == null)
+        if (musicScript == null || musicScript == this)
             musicScript = this;
         else
             Destroy(gameObject);

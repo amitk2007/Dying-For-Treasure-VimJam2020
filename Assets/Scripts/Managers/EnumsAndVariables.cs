@@ -31,6 +31,13 @@ public enum ArtifactType
     Null
 }
 
+//Enum used to describe kind of toggle
+public enum ToggleType
+{
+    Music,
+    Sound
+}
+
 //Add new strings here when new levels are added to game!
 public class LevelList
 {

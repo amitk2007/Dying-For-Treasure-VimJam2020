@@ -52,4 +52,9 @@ public class GenericButtonClass : MonoBehaviour
     {
         SwapToScene(LevelList.Levels[LevelList.CorrentLevel]);
     }
+
+    public static void QuitGame()
+    {
+        Application.Quit();
+    }
 }

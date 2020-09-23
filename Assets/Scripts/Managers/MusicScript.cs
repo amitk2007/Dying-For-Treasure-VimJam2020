@@ -6,6 +6,7 @@ public class MusicScript : MonoBehaviour
 {
     public static MusicScript musicScript;
     public static bool MusicOn = true;
+    public static bool SoundOn = true;
     private AudioSource myAudio;
 
     // Start is called before the first frame update

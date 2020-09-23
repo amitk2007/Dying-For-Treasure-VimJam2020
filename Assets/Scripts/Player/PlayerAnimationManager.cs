@@ -76,6 +76,14 @@ public class PlayerAnimationManager : MonoBehaviour
         PlayCorrespondingSfx(afterState);
     }
 
+    //Returns false if player is doing the victory pose, meaning he shouldn't be damaged.
+    public bool CheckNotVictoryPosing()
+    {
+        bool isNotDoingVictoryAnimation = animator.GetInteger("State") != DictionaryAnimationToIndex[PlayerAnimationState.victory];
+        Debug.Log(isNotDoingVictoryAnimation ? "Player is not doing the victory pose" : "Player is doing the victory pose");
+        return (isNotDoingVictoryAnimation);
+    }
+
     private void AddToDictionaries(PlayerAnimationState state, int index, AudioClip audioToPlay, bool loopAudio, int priority = 10)
     {
         if (DictionaryAnimationToIndex == null)

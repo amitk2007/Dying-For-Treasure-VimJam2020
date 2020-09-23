@@ -21,6 +21,11 @@ public class MusicScript : MonoBehaviour
             Destroy(gameObject);
     }
 
+    public AudioClip GetClip()
+    {
+        return myAudio.clip;
+    }
+
     // Update is called once per frame
     void Update()
     {

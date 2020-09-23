@@ -17,7 +17,7 @@ public class WinLoseManager : MonoBehaviour
         if (winLoseManager == null)
         {
             winLoseManager = this;
-            unpauseGame();
+            UnpauseGame();
         }
         else
             Destroy(this.gameObject);
@@ -28,25 +28,36 @@ public class WinLoseManager : MonoBehaviour
         Debug.Log("Win condition reached!");
         winPanel.gameObject.SetActive(true);
         winPanel.GetComponent<WinPanelScript>().SetupWinPanel(artifacts);
-        pauseGame();
+        PauseGame();
         //Open win window, pause game
     }
 
     public void DoLose()
     {
         Debug.Log("Lose condition reached!");
+        PauseGame();
         losePanel.gameObject.SetActive(true);
-        pauseGame();
         //Open lose window, pause game
     }
 
-    private void pauseGame()
+    private void PauseGame()
     {
         Time.timeScale = 0;
+        StopAllSounds();
     }
 
-    private void unpauseGame()
+    private void UnpauseGame()
     {
         Time.timeScale = 1;
+    }
+
+    private void StopAllSounds()
+    {
+        AudioSource[] sources = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+        for (int index = 0; index < sources.Length; ++index)
+        {
+            if (sources[index].clip != MusicScript.musicScript.GetClip() && sources[index] != winPanel.GetComponent<AudioSource>() && sources[index] != losePanel.GetComponent<AudioSource>())
+                sources[index].Stop();
+        }
     }
 }

@@ -11,10 +11,12 @@ public class DoNotDestroyButtonAudio : MonoBehaviour
     void Awake()
     {
         if (doNotDestroyButtonAudio == null || doNotDestroyButtonAudio == this)
+        {
             doNotDestroyButtonAudio = this;
+            DontDestroyOnLoad(this.gameObject);
+            ButtonAudioSource = this.GetComponent<AudioSource>();
+        }
         else
             Destroy(gameObject);
-        DontDestroyOnLoad(this.gameObject);
-        ButtonAudioSource = this.GetComponent<AudioSource>();
     }
 }

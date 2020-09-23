@@ -13,10 +13,12 @@ public class MusicScript : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         if (musicScript == null || musicScript == this)
+        {
             musicScript = this;
+            myAudio = this.GetComponent<AudioSource>();
+        }
         else
             Destroy(gameObject);
-        myAudio = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

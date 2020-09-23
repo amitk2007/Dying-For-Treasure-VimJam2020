@@ -15,7 +15,10 @@ public class WinLoseManager : MonoBehaviour
     private void Awake()
     {
         if (winLoseManager == null)
+        {
             winLoseManager = this;
+            unpauseGame();
+        }
         else
             Destroy(this.gameObject);
     }
@@ -33,5 +36,15 @@ public class WinLoseManager : MonoBehaviour
         Debug.Log("Lose condition reached!");
         losePanel.gameObject.SetActive(true);
         //Open lose window, pause game
+    }
+
+    private void pauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    private void unpauseGame()
+    {
+        Time.timeScale = 1;
     }
 }

@@ -35,7 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (invinsibilityTimer == 0f)//Only take damage if timer is off
+        if (invinsibilityTimer == 0f && myPlayerAnimationmanager.CheckNotVictoryPosing())//Only take damage if timer is off
         {
             currentLife = Mathf.Clamp(0, currentLife - damage, maxLife);
             UpdateUI();

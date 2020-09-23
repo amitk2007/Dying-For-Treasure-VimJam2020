@@ -901,7 +901,7 @@ PrefabInstance:
     - target: {fileID: 2561493112428033870, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: healthSliderUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2005290507}
     - target: {fileID: 7134948505657892149, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.2609768
@@ -21492,6 +21492,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3439088010472970156, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439088010472970156, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4386199207926313560, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -21634,6 +21642,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+--- !u!114 &2005290507 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3439088010513192572, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+  m_PrefabInstance: {fileID: 2005290506}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2009430546
 GameObject:
   m_ObjectHideFlags: 0

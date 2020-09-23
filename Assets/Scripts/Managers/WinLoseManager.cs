@@ -28,6 +28,7 @@ public class WinLoseManager : MonoBehaviour
         Debug.Log("Win condition reached!");
         winPanel.gameObject.SetActive(true);
         winPanel.GetComponent<WinPanelScript>().SetupWinPanel(artifacts);
+        pauseGame();
         //Open win window, pause game
     }
 
@@ -35,6 +36,7 @@ public class WinLoseManager : MonoBehaviour
     {
         Debug.Log("Lose condition reached!");
         losePanel.gameObject.SetActive(true);
+        pauseGame();
         //Open lose window, pause game
     }
 

@@ -29,7 +29,6 @@ public class PlayerMovment : MonoBehaviour
     void Start()
     {
         gravityScale = GetComponent<Rigidbody2D>().gravityScale;
-
         playerSpeed = MaxPlayerSpeed;
     }
 

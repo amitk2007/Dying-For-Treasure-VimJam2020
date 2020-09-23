@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 61.6
+  m_fontSize: 44.95
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -662,37 +662,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7144545232580876060}
     m_Modifications:
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3568199770601196910, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7961418770179611346, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
       propertyPath: m_Name
       value: PanelWin
-      objectReference: {fileID: 0}
-    - target: {fileID: 7961418770179611346, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7961418770179611347, guid: de56c5579c2a0dc48888debc968e49cb, type: 3}
       propertyPath: m_LocalPosition.x

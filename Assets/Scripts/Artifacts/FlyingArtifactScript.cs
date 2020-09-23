@@ -14,6 +14,7 @@ public class FlyingArtifactScript : MonoBehaviour
     [SerializeField] private int Damage = 2;
     [SerializeField] private float PushForce = 200f;
     [SerializeField] private SpriteRenderer targetLineSpritePrefab;
+    private AudioSource myAudio;
     #endregion
     #region Variables
     private float orbitAngle = 0f; //This angle grows as enemy rotates
@@ -25,6 +26,7 @@ public class FlyingArtifactScript : MonoBehaviour
     private void Start()
     {
         attackingTimer = AttackingIntervals;
+        myAudio = this.GetComponent<AudioSource>();
     }
 
     public void SetTarget(Transform inputTransform)
@@ -44,6 +46,7 @@ public class FlyingArtifactScript : MonoBehaviour
                 attacking = true;
                 attackingTimer = 1f;
                 CreateAttackLine();
+                myAudio.Play();
             }
             else
             {

@@ -11,6 +11,7 @@ public class WinPanelScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI TotalGText;
     [SerializeField] private VerticalLayoutGroup ItemsCollectedParent;
     [SerializeField] private Button NextLevelButton;
+
     public void SetupWinPanel(List<Artifact> collectedArtifacts)
     {
         int sum = 0;

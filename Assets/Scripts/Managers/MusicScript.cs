@@ -31,5 +31,9 @@ public class MusicScript : MonoBehaviour
     void Update()
     {
         myAudio.mute = !MusicOn;
+        if (Input.GetKey("escape"))
+        {
+            Application.Quit();
+        }
     }
 }

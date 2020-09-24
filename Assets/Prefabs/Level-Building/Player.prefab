@@ -183,6 +183,7 @@ GameObject:
   - component: {fileID: 7134948506859451717}
   - component: {fileID: 8378972030969953305}
   - component: {fileID: -6575508684237347870}
+  - component: {fileID: 3655560005955631639}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -279,7 +280,7 @@ MonoBehaviour:
     m_Bits: 567
   m_GroundCheck: {fileID: 271704535539335105}
   m_CeilingCheck: {fileID: 2280311736874648471}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 3655560005955631639}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls:
@@ -378,8 +379,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05, y: -0.2}
-  m_Size: {x: 0.6, y: 1.4}
+  m_Offset: {x: -0.032021523, y: -0.35394496}
+  m_Size: {x: 0.55954933, y: 1.09211}
   m_Direction: 0
 --- !u!95 &7134948506859451717
 Animator:
@@ -517,6 +518,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!61 &3655560005955631639
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134948506859451725}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 4aea90385972cb94390a194b26eb3b70, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.032193184, y: 0.22335625}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 2, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.54382896, y: 0.5410805}
+  m_EdgeRadius: 0
 --- !u!1 &8297021870381988757
 GameObject:
   m_ObjectHideFlags: 0

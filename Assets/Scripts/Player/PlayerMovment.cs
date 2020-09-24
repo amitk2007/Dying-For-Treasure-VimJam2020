@@ -83,6 +83,7 @@ public class PlayerMovment : MonoBehaviour
     //Applay the move speeds and move the player using the player controller
     private void FixedUpdate()
     {
+        print(crouch);
         if (isInLadder)
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));

@@ -16583,6 +16583,30 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 1.0205002
       objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.03798771
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.0205002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 4.026125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_Size.y
+      value: 3.9907055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.05167961
+      objectReference: {fileID: 0}
+    - target: {fileID: 3867266384921886723, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9061432
+      objectReference: {fileID: 0}
     - target: {fileID: 3867266384921886732, guid: df9279c5b975e5c40b1652ee26ca3812, type: 3}
       propertyPath: m_Name
       value: Ladder
@@ -22208,6 +22232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7740687148823812396, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5745017106400064325, guid: 2e5cd4e4e46e1c44ab4a45edbe938348, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
 --- !u!4 &1799219921 stripped

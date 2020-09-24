@@ -15316,7 +15316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6218549777001594765, guid: 54dd5eb4a164e8445ba7bae380863eb9, type: 3}
       propertyPath: secondToWait
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6218549777001594765, guid: 54dd5eb4a164e8445ba7bae380863eb9, type: 3}
       propertyPath: BolderTTL

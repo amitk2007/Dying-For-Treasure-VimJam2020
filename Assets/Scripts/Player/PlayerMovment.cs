@@ -66,7 +66,7 @@ public class PlayerMovment : MonoBehaviour
         {
             crouch = false;
         }
-        #endregion
+        #endregion 
 
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;

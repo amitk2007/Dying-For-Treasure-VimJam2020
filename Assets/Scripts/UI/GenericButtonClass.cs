@@ -41,8 +41,11 @@ public class GenericButtonClass : MonoBehaviour
                 }
                 else
                 {
+                    print(LevelList.CorrentLevel);
                     LevelList.SetCurrentLevel(i + 1);
-                    SwapToScene(LevelList.Levels[i + 1]);
+                    print(LevelList.CorrentLevel);
+                    SceneManager.LoadScene(LevelList.Levels[i + 1]);
+                    print(LevelList.CorrentLevel);
                 }
             }
         }

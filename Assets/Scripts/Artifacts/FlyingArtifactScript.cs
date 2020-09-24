@@ -47,6 +47,8 @@ public class FlyingArtifactScript : MonoBehaviour
                 attackingTimer = 1f;
                 CreateAttackLine();
                 myAudio.Play();
+                if (attackTarget == Vector2.zero)
+                    attackTarget = GetOppositeCirclePoint();
             }
             else
             {
@@ -66,9 +68,8 @@ public class FlyingArtifactScript : MonoBehaviour
             //Attacking logic
             if (attackingTimer == 0f)
             {
-                if (attackTarget == Vector2.zero)
+                if (attackLine != null)
                 {
-                    attackTarget = GetOppositeCirclePoint();
                     DestroyAttackLine();
                 }
                 transform.position = Vector2.MoveTowards(transform.position, attackTarget, MaxAttackStepSpeed * Time.deltaTime);
@@ -111,7 +112,8 @@ public class FlyingArtifactScript : MonoBehaviour
 
     private void CreateAttackLine()
     {
-        attackLine = (Instantiate(targetLineSpritePrefab.gameObject, playerTarget.position, Quaternion.LookRotation(Vector3.forward, ((Vector2)playerTarget.position - GetStationaryCirclePoint())))) as GameObject;
+        attackLine = (Instantiate(targetLineSpritePrefab.gameObject, playerTarget.position, Quaternion.LookRotation(Vector3.forward, ((Vector2)playerTarget.position - (Vector2)transform.position)))) as GameObject;
+        attackLine.transform.position += Vector3.forward * (GetStationaryCirclePoint() - (Vector2)transform.position).magnitude;
     }
 
     private void DestroyAttackLine()

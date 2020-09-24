@@ -21,7 +21,7 @@ public class PlayerMovment : MonoBehaviour
     int isJumping = 0;
     bool crouch = false;
 
-    bool isInLadder;
+    int isInLadder = 0;
     float gravityScale;
     #endregion
 
@@ -49,7 +49,7 @@ public class PlayerMovment : MonoBehaviour
     {
         #region Movment Speeds
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
-        verticalMove = isInLadder ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
+        verticalMove = isInLadder != 0 ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
         #endregion
 
         #region Keys Press
@@ -71,8 +71,8 @@ public class PlayerMovment : MonoBehaviour
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
-        state = isInLadder ? (int)PlayerAnimationState.climbing : state;
-        if (isInLadder)
+        state = isInLadder != 0 ? (int)PlayerAnimationState.climbing : state;
+        if (isInLadder != 0)
         {
             this.GetComponent<Animator>().speed = verticalMove == 0 ? 0 : 1;
         }
@@ -84,12 +84,14 @@ public class PlayerMovment : MonoBehaviour
             this.GetComponent<Animator>().speed = 1;
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
+
+        print("isInLadder " + isInLadder);
     }
 
     //Applay the move speeds and move the player using the player controller
     private void FixedUpdate()
     {
-        if (isInLadder)
+        if (isInLadder != 0)
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));
         }
@@ -113,7 +115,7 @@ public class PlayerMovment : MonoBehaviour
     {
         if (collision.transform.tag == "Ladder")
         {
-            isInLadder = true;
+            isInLadder++;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
             GetComponent<Rigidbody2D>().gravityScale = 0;
         }
@@ -124,7 +126,7 @@ public class PlayerMovment : MonoBehaviour
     {
         if (collision.transform.tag == "Ladder")
         {
-            isInLadder = false;
+            isInLadder--;
             GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         }
     }

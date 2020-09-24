@@ -31,6 +31,7 @@ public class GenericButtonClass : MonoBehaviour
 
     public static void MoveToNextLevel()
     {
+        print("moving to next level");
         for (int i = 0; i < LevelList.Levels.Length; i++)
         {
             if (SceneManager.GetActiveScene().name == LevelList.Levels[i])

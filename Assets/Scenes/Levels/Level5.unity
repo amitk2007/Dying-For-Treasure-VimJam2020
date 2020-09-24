@@ -41273,6 +41273,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19e07d90fb0daa4499d9578e44d8d252, type: 3}
+--- !u!114 &1378929866 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3439088010513192572, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+  m_PrefabInstance: {fileID: 475046500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1401439339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41531,7 +41542,7 @@ PrefabInstance:
     - target: {fileID: 2561493112428033870, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: healthSliderUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1378929866}
     - target: {fileID: 7134948505657892149, guid: a1c00a5909b29bf479b42aade9ba188b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.83

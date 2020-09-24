@@ -157,6 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bolderDamage: 3
   TTL: 7
+  AudioRange: 20
+  AudioMaxRange: 5
 --- !u!82 &8973837927034665115
 AudioSource:
   m_ObjectHideFlags: 0

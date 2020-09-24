@@ -72,6 +72,10 @@ public class PlayerMovment : MonoBehaviour
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
         state = isInLadder ? (int)PlayerAnimationState.climbing : state;
+        if (crouch == true)
+        {
+            state = horizontalMove == 0 ? (int)PlayerAnimationState.crouch : (int)PlayerAnimationState.crouchWalking;
+        }
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
     }

@@ -11,7 +11,8 @@ public enum PlayerAnimationState
     hurt,
     death,
     victory,
-    climbing
+    climbing,
+    crouchWalking,
 }
 
 //Enum used to describe what animation player canvas has

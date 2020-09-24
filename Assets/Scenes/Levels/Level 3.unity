@@ -487,6 +487,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3439088010472970156, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3439088010472970156, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7144545232580876048, guid: 439885c13966c454fb11e7c328672a8f, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -21724,6 +21732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1555bef789af3644785041b45dd25be2, type: 3}
+--- !u!20 &1038015093 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5115988449334045951, guid: 1555bef789af3644785041b45dd25be2, type: 3}
+  m_PrefabInstance: {fileID: 969074807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1119208560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21792,6 +21805,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 224563959055990899, guid: a1632a6849fd1734cb5fde6888fa047f, type: 3}
+      propertyPath: trackedObject
+      value: 
+      objectReference: {fileID: 1038015093}
+    - target: {fileID: 224563959403400223, guid: a1632a6849fd1734cb5fde6888fa047f, type: 3}
+      propertyPath: trackedObject
+      value: 
+      objectReference: {fileID: 1038015093}
+    - target: {fileID: 224563959775869310, guid: a1632a6849fd1734cb5fde6888fa047f, type: 3}
+      propertyPath: trackedObject
+      value: 
+      objectReference: {fileID: 1038015093}
     - target: {fileID: 8181959179820936423, guid: a1632a6849fd1734cb5fde6888fa047f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30.29137

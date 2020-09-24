@@ -7,7 +7,7 @@ public class LoadSettins : MonoBehaviour
     void Start()
     {
         LevelList.CorrentLevel = PlayerPrefs.GetInt("CorrentLevel", 0);
-        print(LevelList.CorrentLevel);
+        //print(LevelList.CorrentLevel);
         MusicScript.MusicOn = (PlayerPrefs.GetString("MusicOn", "True") == "True");
     }
     

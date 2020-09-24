@@ -80,6 +80,8 @@ public class PlayerMovment : MonoBehaviour
         {
             state = horizontalMove == 0 ? (int)PlayerAnimationState.crouch : (int)PlayerAnimationState.crouchWalking;
         }
+        else
+            this.GetComponent<Animator>().speed = 1;
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
     }

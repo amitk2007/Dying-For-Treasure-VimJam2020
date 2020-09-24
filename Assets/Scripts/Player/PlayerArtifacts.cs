@@ -91,6 +91,7 @@ public class PlayerArtifacts : MonoBehaviour
     //On update, we handle each artifact the player owns, if it requires it
     private void Update()
     {
+        //Debug.Log("Player has " + GetArtifacts().Count);
         foreach (Artifact artifact in myArtifacts)
             HandleArtifactCurse(artifact);
     }

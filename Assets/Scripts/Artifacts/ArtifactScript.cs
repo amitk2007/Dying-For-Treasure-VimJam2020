@@ -7,6 +7,7 @@ public class ArtifactScript : MonoBehaviour
 {
     [SerializeField] private ArtifactType myArtifactType;
     public Artifact MyArtifact;
+    private bool artifactTaken = false;
 
     //In the beginning, we generate data for the artifact based on its type
     //We then configure the artifact visually accordingly
@@ -25,23 +26,28 @@ public class ArtifactScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Collided with player, time to bestow curse on him and give him artifact
-        if (collision.tag == "Player")
+        if (!artifactTaken)
         {
-            collision.GetComponent<PlayerArtifacts>().GivePlayerArtifact(MyArtifact);
-            if (myArtifactType == ArtifactType.Poison)
-                Destroy(gameObject);
-            else if (myArtifactType == ArtifactType.Slow)
+            //Collided with player, time to bestow curse on him and give him artifact
+            if (collision.tag == "Player")
             {
-                collision.GetComponent<PlayerArtifacts>().BestowSlowCurse();
-                Destroy(gameObject);
+                //Debug.Log("Giving player because collided with " + collision.name);
+                collision.GetComponent<PlayerArtifacts>().GivePlayerArtifact(MyArtifact);
+                if (myArtifactType == ArtifactType.Poison)
+                    Destroy(gameObject);
+                else if (myArtifactType == ArtifactType.Slow)
+                {
+                    collision.GetComponent<PlayerArtifacts>().BestowSlowCurse();
+                    Destroy(gameObject);
+                }
+                else if (myArtifactType == ArtifactType.Flying)
+                {
+                    Destroy(gameObject);
+                }
+                else //Null artifact
+                    Destroy(gameObject);
+                artifactTaken = true;
             }
-            else if (myArtifactType == ArtifactType.Flying)
-            {
-                Destroy(gameObject);
-            }
-            else //Null artifact
-                Destroy(gameObject);
         }
     }
 }

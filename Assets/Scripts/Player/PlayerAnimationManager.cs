@@ -94,10 +94,14 @@ public class PlayerAnimationManager : MonoBehaviour
             DictionaryAnimationToSfx = new Dictionary<PlayerAnimationState, AudioClip>();
         if (DictionaryAnimationToLoopSfx == null)
             DictionaryAnimationToLoopSfx = new Dictionary<PlayerAnimationState, bool>();
-        DictionaryAnimationToIndex.Add(state, index);
-        DictionaryAnimationToPriority.Add(state, priority);
-        DictionaryAnimationToSfx.Add(state, audioToPlay);
-        DictionaryAnimationToLoopSfx.Add(state, loopAudio);
+        if (!DictionaryAnimationToIndex.ContainsKey(state))
+            DictionaryAnimationToIndex.Add(state, index);
+        if (!DictionaryAnimationToPriority.ContainsKey(state))
+            DictionaryAnimationToPriority.Add(state, priority);
+        if (!DictionaryAnimationToSfx.ContainsKey(state))
+            DictionaryAnimationToSfx.Add(state, audioToPlay);
+        if (!DictionaryAnimationToLoopSfx.ContainsKey(state))
+            DictionaryAnimationToLoopSfx.Add(state, loopAudio);
     }
 
     public void SetAnimationState(int newStateIndex)

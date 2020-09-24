@@ -80,7 +80,7 @@ public class PlayerAnimationManager : MonoBehaviour
     public bool CheckNotVictoryPosing()
     {
         bool isNotDoingVictoryAnimation = animator.GetInteger("State") != DictionaryAnimationToIndex[PlayerAnimationState.victory];
-        Debug.Log(isNotDoingVictoryAnimation ? "Player is not doing the victory pose" : "Player is doing the victory pose");
+        //Debug.Log(isNotDoingVictoryAnimation ? "Player is not doing the victory pose" : "Player is doing the victory pose");
         return (isNotDoingVictoryAnimation);
     }
 

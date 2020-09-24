@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/Credits.unity
     guid: 2cfba27be23e8b24fbfd3d940b224e91
   - enabled: 0
-    path: Assets/Scenes/Menus/Settings.unity
-    guid: d1f65b324c868ce4f99139ed569b8cf2
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Levels/Tutorials/Movment_Tutorial.unity
     guid: 763521dafb450e347970614827887b4a
@@ -30,6 +30,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Tutorials/Slow_Tutorial.unity
     guid: 958e541e6bf2a0f4fa696e99fc6c4fde
   - enabled: 1
+    path: Assets/Scenes/Levels/Tutorials/Slow tutorial op 2.unity
+    guid: f78f224d3e3ad7e47afcf4109db15bc7
+  - enabled: 1
     path: Assets/Scenes/Levels/Level2.unity
     guid: 309eeaaeb1dd37146b9284bfd8b1c24b
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level3.unity
+    guid: 52b2231ca5f8a2549a0c5c4cbe3a5023
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: a67da20f2e9f17b469af7cfb0eb7f679
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level6.unity
+    guid: 9afd94f3cdf7076488aba6db0703430e
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level7.unity
+    guid: f3e6028d823949b4f9186e95f51e385c
   m_configObjects: {}

@@ -21,7 +21,7 @@ public class GenericButtonClass : MonoBehaviour
     //Reloads the current scene
     public static void ReloadScene()
     {
-        SwapToScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public static void OpenUrl(string URL)

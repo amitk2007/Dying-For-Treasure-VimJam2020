@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/MainMenuScene.unity
     guid: 646bdb7d7aa250b4e8e78f6adb125fc8
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Achive/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Menus/Credits.unity
@@ -36,15 +36,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level2.unity
     guid: 309eeaaeb1dd37146b9284bfd8b1c24b
   - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
+    path: Assets/Achive/XLevel3.unity
     guid: 52b2231ca5f8a2549a0c5c4cbe3a5023
   - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
+    path: Assets/Achive/XLevel5.unity
     guid: a67da20f2e9f17b469af7cfb0eb7f679
   - enabled: 1
-    path: Assets/Scenes/Levels/Level6.unity
+    path: Assets/Achive/XLevel6.unity
     guid: 9afd94f3cdf7076488aba6db0703430e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level7.unity
+    path: Assets/Achive/XLevel7.unity
     guid: f3e6028d823949b4f9186e95f51e385c
   m_configObjects: {}

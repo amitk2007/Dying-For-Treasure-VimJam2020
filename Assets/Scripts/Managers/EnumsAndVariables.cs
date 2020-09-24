@@ -42,7 +42,7 @@ public enum ToggleType
 //Add new strings here when new levels are added to game!
 public class LevelList
 {
-    public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial", "Slow_Tutorial", "Slow tutorial op 2", "Level2", "Level3", "Level5", "Level6", "Level7" };
+    public static string[] Levels = { "Movment_Tutorial", "Poison_Tutorial", "Flying_Tutorial", "Slow_Tutorial", "Slow tutorial op 2", "Level2", "Level3", "Level4", "Level5", "Level6" };
     public static int CorrentLevel;
     public static void SetCurrentLevel(int level)
     {

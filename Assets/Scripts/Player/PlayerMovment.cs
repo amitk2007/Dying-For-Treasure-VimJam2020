@@ -84,8 +84,6 @@ public class PlayerMovment : MonoBehaviour
             this.GetComponent<Animator>().speed = 1;
         this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         #endregion
-
-        print("isInLadder " + isInLadder);
     }
 
     //Applay the move speeds and move the player using the player controller
@@ -94,6 +92,8 @@ public class PlayerMovment : MonoBehaviour
         if (isInLadder != 0)
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));
+            GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
+            jump = false;
         }
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;

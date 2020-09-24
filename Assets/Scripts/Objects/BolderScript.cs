@@ -9,12 +9,37 @@ public class BolderScript : MonoBehaviour
     public int bolderDamage;
     [Range(0, 10)]
     public float TTL;
+    [SerializeField] private float AudioRange = 13f;
+    [SerializeField] private float AudioMaxRange = 5f;
+    private Transform playerTransform;
+    private AudioSource myAudio;
     #endregion
 
     // Start is called before the first frame update
     void Start()
     {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        myAudio = this.GetComponent<AudioSource>();
         StartCoroutine(DestroyThisBolder(TTL));
+    }
+
+    private void Update()
+    {
+        UpdateSoundVolume();
+    }
+
+    //Function changes boulder sound based on how close it is to the player
+    private void UpdateSoundVolume()
+    {
+        float newVol = Mathf.Lerp(1,0,(DistanceFromPlayer() - AudioMaxRange) / (AudioRange - AudioMaxRange));
+        Debug.Log("Boulder volume: " + newVol);
+        myAudio.volume = newVol;
+    }
+
+    //Function returns the distance between the player and the object
+    private float DistanceFromPlayer()
+    {
+        return ((playerTransform.position - transform.position).magnitude);
     }
 
     //Destroy this Gameobject after X seconds

@@ -33,7 +33,7 @@ public class WinPanelScript : MonoBehaviour
         else
         {
             NextLevelButton.interactable = true;
-            NextLevelButton.onClick.AddListener(delegate { GenericButtonClass.SwapToScene(nextLevelName); });
+            NextLevelButton.onClick.AddListener(delegate { GenericButtonClass.MoveToNextLevel(); });
         }
     }
 

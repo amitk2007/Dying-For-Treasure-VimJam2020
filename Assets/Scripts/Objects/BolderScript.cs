@@ -32,7 +32,7 @@ public class BolderScript : MonoBehaviour
     private void UpdateSoundVolume()
     {
         float newVol = Mathf.Lerp(1,0,(DistanceFromPlayer() - AudioMaxRange) / (AudioRange - AudioMaxRange));
-        Debug.Log("Boulder volume: " + newVol);
+        //Debug.Log("Boulder volume: " + newVol);
         myAudio.volume = newVol;
     }
 

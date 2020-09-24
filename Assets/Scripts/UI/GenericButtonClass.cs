@@ -42,11 +42,11 @@ public class GenericButtonClass : MonoBehaviour
                 }
                 else
                 {
-                    print(LevelList.CorrentLevel);
+                    //print(LevelList.CorrentLevel);
                     LevelList.SetCurrentLevel(i + 1);
-                    print(LevelList.CorrentLevel);
+                    //print(LevelList.CorrentLevel);
                     SceneManager.LoadScene(LevelList.Levels[i + 1]);
-                    print(LevelList.CorrentLevel);
+                    //print(LevelList.CorrentLevel);
                 }
             }
         }

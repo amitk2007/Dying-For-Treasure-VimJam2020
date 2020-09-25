@@ -10,6 +10,7 @@ public class PlayerMovment : MonoBehaviour
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
+    private int jumpingInAirBug = 0;
     //[SerializeField] private LadderColliderScript myLadderCollider;
 
     #endregion
@@ -77,6 +78,19 @@ public class PlayerMovment : MonoBehaviour
             }
         }
         #endregion 
+
+        if (isJumping == 2 && controller.m_Grounded)
+        {
+            jumpingInAirBug++;
+            if (jumpingInAirBug > 100)
+            {
+                isJumping = 0;
+            }
+        }
+        else
+        {
+            jumpingInAirBug = 0;
+        }
 
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;

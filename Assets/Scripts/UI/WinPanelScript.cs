@@ -29,7 +29,10 @@ public class WinPanelScript : MonoBehaviour
     {
         string nextLevelName = GetNextLevelName();
         if (nextLevelName == null)
+        {
             NextLevelButton.interactable = false;
+            NextLevelButton.GetComponentInChildren<TextMeshProUGUI>().text = "Thanks for playing!";
+        }
         else
         {
             NextLevelButton.interactable = true;

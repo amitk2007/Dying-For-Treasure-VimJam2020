@@ -14,6 +14,7 @@ public class PlayerArtifacts : MonoBehaviour
     private Dictionary<Artifact, float> poisonArtifactTimers;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
     private PlayerAnimationManager myPlayerAnimationmanager;
+    private SpriteRenderer mySprite;
     #endregion
 
     #region Parameters specific to slow artifacts
@@ -34,6 +35,7 @@ public class PlayerArtifacts : MonoBehaviour
         ClearPlayerArtifacts();
         myPlayerCanvasAnimationmanager = this.GetComponentInChildren<PlayerCanvasAnimationManager>();
         myPlayerAnimationmanager = this.GetComponent<PlayerAnimationManager>();
+        mySprite = this.GetComponent<SpriteRenderer>();
     }
 
     public void ClearPlayerArtifacts()
@@ -109,8 +111,8 @@ public class PlayerArtifacts : MonoBehaviour
                 poisonArtifactTimers[artifact] = Time.deltaTime + poisonArtifactTimers[artifact];
                 float colorFlashMinus = 1 - poisonArtifactTimers[artifact]/PoisonDamageIntervals * PoisonGreenPercentage;
                 //We will color the player only if this is the darkest green - if he is poisoned by other artifact, we don't want to override it.
-                if (colorFlashMinus < this.GetComponent<SpriteRenderer>().color.r || poisonArtifactTimers[artifact] <= Time.deltaTime)
-                    this.GetComponent<SpriteRenderer>().color = new Color(colorFlashMinus, 1f, colorFlashMinus);
+                if (colorFlashMinus < mySprite.color.r || poisonArtifactTimers[artifact] <= Time.deltaTime)
+                    mySprite.color = new Color(colorFlashMinus, mySprite.color.g, colorFlashMinus, mySprite.color.a);
                 if (poisonArtifactTimers[artifact] >= PoisonDamageIntervals)
                 {
                     poisonArtifactTimers[artifact] = 0f;

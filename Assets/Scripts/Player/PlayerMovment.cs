@@ -21,6 +21,8 @@ public class PlayerMovment : MonoBehaviour
     int isJumping = 0;
     bool crouch = false;
 
+    int jumpingCoolDown = 0;
+
     int isInLadder = 0;
     float gravityScale;
     #endregion
@@ -47,17 +49,13 @@ public class PlayerMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jumpingCoolDown++;
         #region Movment Speeds
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
         verticalMove = isInLadder != 0 ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
         #endregion
 
         #region Keys Press
-        if (Input.GetButtonDown("Jump"))
-        {
-            isJumping = isJumping == 0 ? 1 : isJumping;
-            jump = true;
-        }
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
@@ -65,6 +63,16 @@ public class PlayerMovment : MonoBehaviour
         else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
+        }
+
+        if (Input.GetButtonDown("Jump") && crouch == false)
+        {
+            if (jumpingCoolDown > 100)
+            {
+                isJumping = isJumping == 0 ? 1 : isJumping;
+                jump = true;
+                jumpingCoolDown = 0;
+            }
         }
         #endregion 
 

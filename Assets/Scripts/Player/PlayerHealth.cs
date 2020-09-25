@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
     private WinLoseManager myWinLoseManager;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
     private PlayerAnimationManager myPlayerAnimationmanager;
+    private SpriteRenderer mySprite;
 
     //In the beginning we will set up player with full health & update UI
     void Start()
@@ -23,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
         myWinLoseManager = WinLoseManager.winLoseManager;
         myPlayerCanvasAnimationmanager = this.GetComponentInChildren<PlayerCanvasAnimationManager>();
         myPlayerAnimationmanager = this.GetComponent<PlayerAnimationManager>();
+        mySprite = this.GetComponent<SpriteRenderer>();
         currentLife = maxLife;
         UpdateUI();
     }
@@ -88,11 +90,11 @@ public class PlayerHealth : MonoBehaviour
         {
             invinsibilityTimer = Mathf.Clamp(invinsibilityTimer - Time.deltaTime, 0f, InvinsibilityTime);
             if (invinsibilityTimer % 0.25f > 0.125f)
-                this.GetComponent<SpriteRenderer>().color = Color.clear;
+                mySprite.color = new Color(mySprite.color.r, mySprite.color.g, mySprite.color.b, 0f);
             else
-                this.GetComponent<SpriteRenderer>().color = Color.white;
+                mySprite.color = new Color(mySprite.color.r, mySprite.color.g, mySprite.color.b, 1f);
             yield return new WaitForSeconds(Time.deltaTime);
         }
-        this.GetComponent<SpriteRenderer>().color = Color.white;
+        mySprite.color = new Color(mySprite.color.r, mySprite.color.g, mySprite.color.b, 1f);
     }
 }

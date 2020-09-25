@@ -31,7 +31,7 @@ public class PlayerAnimationManager : MonoBehaviour
     {
         return DictionaryAnimationToIndex[animation];
     }
-    
+
     //Function plays audio clip based on dictionary
     private void PlayCorrespondingSfx(PlayerAnimationState state)
     {
@@ -56,7 +56,7 @@ public class PlayerAnimationManager : MonoBehaviour
         AddToDictionaries(PlayerAnimationState.jump, 3, Sfx_Jumping, false);
         AddToDictionaries(PlayerAnimationState.hurt, 4, Sfx_Damage, false, 5);
         AddToDictionaries(PlayerAnimationState.death, 5, Sfx_Death, false, 1);
-        AddToDictionaries(PlayerAnimationState.victory, 6, Sfx_Victory, false ,4);
+        AddToDictionaries(PlayerAnimationState.victory, 6, Sfx_Victory, false, 4);
         AddToDictionaries(PlayerAnimationState.climbing, 7, Sfx_Climbing, true);
     }
 
@@ -111,6 +111,20 @@ public class PlayerAnimationManager : MonoBehaviour
         {
             animator.SetInteger("State", newStateIndex);
             PlayCorrespondingSfx(newState);
+        }
+    }
+
+    public void SetAnimationStateAndSound(int newStateIndex, int soundStateIndex)
+    {
+        PlayerAnimationState newState = GetAnimationByIndex(newStateIndex);
+        PlayerAnimationState newSoundState = GetAnimationByIndex(soundStateIndex);
+        if (PriorityAnimation(newState))
+        {
+            animator.SetInteger("State", newStateIndex);
+        }
+        if (PriorityAnimation(newSoundState))
+        {
+            PlayCorrespondingSfx(newSoundState);
         }
     }
 

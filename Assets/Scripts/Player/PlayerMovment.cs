@@ -90,7 +90,16 @@ public class PlayerMovment : MonoBehaviour
         }
         else
             this.GetComponent<Animator>().speed = 1;
-        this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
+
+        if (isInLadder != 0 && verticalMove == 0)
+        {
+            //play idle aniamtion music
+            this.GetComponent<PlayerAnimationManager>().SetAnimationStateAndSound(state, (int)PlayerAnimationState.idle);
+        }
+        else
+        {
+            this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
+        }
         #endregion
     }
 

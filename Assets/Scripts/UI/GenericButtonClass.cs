@@ -61,4 +61,10 @@ public class GenericButtonClass : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public static void RestartButton()
+    {
+        GameObject.FindGameObjectWithTag("GameManager").GetComponent<WinLoseManager>().DoLose(); ;
+    }
+       
 }

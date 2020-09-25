@@ -10,6 +10,7 @@ public class PlayerMovment : MonoBehaviour
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
+    [SerializeField] private LadderColliderScript myLadderCollider;
 
     #endregion
     #region Variables
@@ -28,6 +29,7 @@ public class PlayerMovment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        collidingWith = new List<GameObject>();
         gravityScale = GetComponent<Rigidbody2D>().gravityScale;
         playerSpeed = MaxPlayerSpeed;
     }
@@ -110,11 +112,14 @@ public class PlayerMovment : MonoBehaviour
         }
     }
 
+    private List<GameObject> collidingWith;
     //On entering the ladder
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Ladder")
         {
+            if (!collidingWith.Contains(collision.gameObject))
+                collidingWith.Add(collision.gameObject);
             isInLadder++;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
             GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -126,8 +131,53 @@ public class PlayerMovment : MonoBehaviour
     {
         if (collision.transform.tag == "Ladder")
         {
+            if (collidingWith.Contains(collision.gameObject) && isInLadder == 1)
+                collidingWith.Remove(collision.gameObject);
             isInLadder--;
             GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         }
+    }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.transform.tag == "Ladder")
+    //    {
+    //        isInLadder = 0;
+    //        GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+    //    }
+    //}
+
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.transform.tag == "Ladder")
+    //    {
+    //        isInLadder--;
+    //        GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+    //    }
+    //}
+
+    public bool ShouldLaddersMaterialize(GameObject ladderWhichIsChecking)
+    {
+        bool val = !IsHoldingDown() && !LadderColliding();
+        if (collidingWith.Contains(ladderWhichIsChecking) && val == true)
+        {
+            isInLadder = 0;
+            GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+        }
+        return (val);
+    }
+
+    public bool IsHoldingDown()
+    {
+        bool val = Input.GetAxisRaw("Vertical") == -1;
+        Debug.Log("Is holding down - " + val);
+        return val;
+    }
+
+    public bool LadderColliding()
+    {
+        bool val = myLadderCollider.IsCollidingWithLadder;
+        Debug.Log("Is Colliding with ladder - " + val);
+        return val;
     }
 }

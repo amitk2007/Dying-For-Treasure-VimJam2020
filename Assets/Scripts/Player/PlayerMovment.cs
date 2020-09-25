@@ -54,7 +54,7 @@ public class PlayerMovment : MonoBehaviour
         jumpingCoolDown++;
         #region Movment Speeds
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
-        verticalMove = isInLadder != 0 ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
+        verticalMove = IsInLadder() ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
         #endregion
 
         #region Keys Press
@@ -67,7 +67,7 @@ public class PlayerMovment : MonoBehaviour
             crouch = false;
         }
 
-        if (Input.GetButtonDown("Jump") && crouch == false)
+        if (Input.GetButtonDown("Jump") && crouch == false && IsInLadder() == false)
         {
             if (jumpingCoolDown > 100)
             {
@@ -81,8 +81,10 @@ public class PlayerMovment : MonoBehaviour
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
-        state = isInLadder != 0 ? (int)PlayerAnimationState.climbing : state;
-        if (isInLadder != 0)
+        state = IsInLadder() ? (int)PlayerAnimationState.climbing : state;
+
+        #region Special cases for animations
+        if (IsInLadder())
         {
             this.GetComponent<Animator>().speed = verticalMove == 0 ? 0 : 1;
         }
@@ -93,7 +95,7 @@ public class PlayerMovment : MonoBehaviour
         else
             this.GetComponent<Animator>().speed = 1;
 
-        if (isInLadder != 0 && verticalMove == 0)
+        if (IsInLadder() && verticalMove == 0)
         {
             //play idle aniamtion music
             this.GetComponent<PlayerAnimationManager>().SetAnimationStateAndSound(state, (int)PlayerAnimationState.idle);
@@ -103,12 +105,13 @@ public class PlayerMovment : MonoBehaviour
             this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
         }
         #endregion
+        #endregion
     }
 
     //Applay the move speeds and move the player using the player controller
     private void FixedUpdate()
     {
-        if (isInLadder != 0)
+        if (IsInLadder())
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
@@ -197,4 +200,8 @@ public class PlayerMovment : MonoBehaviour
     //    Debug.Log("Is Colliding with ladder - " + val);
     //    return val;
     //}
+    bool IsInLadder()
+    {
+        return isInLadder != 0;
+    }
 }

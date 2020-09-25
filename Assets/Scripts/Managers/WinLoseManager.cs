@@ -32,6 +32,7 @@ public class WinLoseManager : MonoBehaviour
             Debug.Log("Win condition reached!");
             winPanel.gameObject.SetActive(true);
             winPanel.GetComponent<WinPanelScript>().SetupWinPanel(artifacts);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovment>().enabled = false;
             PauseGame();
             //Open win window, pause game
         }

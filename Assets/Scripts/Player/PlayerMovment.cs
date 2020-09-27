@@ -70,7 +70,7 @@ public class PlayerMovment : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && crouch == false && IsInLadder() == false)
         {
-            if (jumpingCoolDown > 100)
+            if (jumpingCoolDown > 4)
             {
                 isJumping = isJumping == 0 ? 1 : isJumping;
                 jump = true;
@@ -82,7 +82,7 @@ public class PlayerMovment : MonoBehaviour
         if (isJumping == 2 && controller.m_Grounded)
         {
             jumpingInAirBug++;
-            if (jumpingInAirBug > 100)
+            if (jumpingInAirBug > 4)
             {
                 isJumping = 0;
             }

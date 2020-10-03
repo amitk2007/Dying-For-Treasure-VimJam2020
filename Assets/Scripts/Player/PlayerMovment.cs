@@ -10,7 +10,8 @@ public class PlayerMovment : MonoBehaviour
     public float playerClimbingSpeed = 1f;
     public float MaxPlayerSpeed = 40f;
     private float playerSpeed;
-    [SerializeField] private LadderColliderScript myLadderCollider;
+    private int jumpingInAirBug = 0;
+    //[SerializeField] private LadderColliderScript myLadderCollider;
 
     #endregion
     #region Variables
@@ -22,6 +23,8 @@ public class PlayerMovment : MonoBehaviour
     int isJumping = 0;
     bool crouch = false;
 
+    int jumpingCoolDown = 0;
+
     int isInLadder = 0;
     float gravityScale;
     #endregion
@@ -29,7 +32,7 @@ public class PlayerMovment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collidingWith = new List<GameObject>();
+        //collidingWith = new List<GameObject>();
         gravityScale = GetComponent<Rigidbody2D>().gravityScale;
         playerSpeed = MaxPlayerSpeed;
     }
@@ -49,17 +52,13 @@ public class PlayerMovment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        jumpingCoolDown++;
         #region Movment Speeds
         horizontalMove = Input.GetAxisRaw("Horizontal") * playerSpeed;
-        verticalMove = isInLadder != 0 ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
+        verticalMove = IsInLadder() ? Input.GetAxisRaw("Vertical") * playerClimbingSpeed : 0f;
         #endregion
 
         #region Keys Press
-        if (Input.GetButtonDown("Jump"))
-        {
-            isJumping = isJumping == 0 ? 1 : isJumping;
-            jump = true;
-        }
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
@@ -68,13 +67,38 @@ public class PlayerMovment : MonoBehaviour
         {
             crouch = false;
         }
+
+        if (Input.GetButtonDown("Jump") && crouch == false && IsInLadder() == false)
+        {
+            if (jumpingCoolDown > 4)
+            {
+                isJumping = isJumping == 0 ? 1 : isJumping;
+                jump = true;
+                jumpingCoolDown = 0;
+            }
+        }
         #endregion 
+
+        if (isJumping == 2 && controller.m_Grounded)
+        {
+            jumpingInAirBug++;
+            if (jumpingInAirBug > 4)
+            {
+                isJumping = 0;
+            }
+        }
+        else
+        {
+            jumpingInAirBug = 0;
+        }
 
         #region Animation
         state = horizontalMove != 0 ? (int)PlayerAnimationState.walking : (int)PlayerAnimationState.idle;
         state = isJumping == 2 ? (int)PlayerAnimationState.jump : state;
-        state = isInLadder != 0 ? (int)PlayerAnimationState.climbing : state;
-        if (isInLadder != 0)
+        state = IsInLadder() ? (int)PlayerAnimationState.climbing : state;
+
+        #region Special cases for animations
+        if (IsInLadder())
         {
             this.GetComponent<Animator>().speed = verticalMove == 0 ? 0 : 1;
         }
@@ -84,14 +108,24 @@ public class PlayerMovment : MonoBehaviour
         }
         else
             this.GetComponent<Animator>().speed = 1;
-        this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
+
+        if (IsInLadder() && verticalMove == 0)
+        {
+            //play idle aniamtion music
+            this.GetComponent<PlayerAnimationManager>().SetAnimationStateAndSound(state, (int)PlayerAnimationState.idle);
+        }
+        else
+        {
+            this.GetComponent<PlayerAnimationManager>().SetAnimationState(state);
+        }
+        #endregion
         #endregion
     }
 
     //Applay the move speeds and move the player using the player controller
     private void FixedUpdate()
     {
-        if (isInLadder != 0)
+        if (IsInLadder())
         {
             transform.Translate(new Vector3(0, verticalMove * Time.deltaTime, 0));
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
@@ -112,14 +146,14 @@ public class PlayerMovment : MonoBehaviour
         }
     }
 
-    private List<GameObject> collidingWith;
+    //private List<GameObject> collidingWith;
     //On entering the ladder
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.tag == "Ladder")
         {
-            if (!collidingWith.Contains(collision.gameObject))
-                collidingWith.Add(collision.gameObject);
+            //if (!collidingWith.Contains(collision.gameObject))
+            //    collidingWith.Add(collision.gameObject);
             isInLadder++;
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, 0);
             GetComponent<Rigidbody2D>().gravityScale = 0;
@@ -131,8 +165,8 @@ public class PlayerMovment : MonoBehaviour
     {
         if (collision.transform.tag == "Ladder")
         {
-            if (collidingWith.Contains(collision.gameObject) && isInLadder == 1)
-                collidingWith.Remove(collision.gameObject);
+            //if (collidingWith.Contains(collision.gameObject) && isInLadder == 1)
+            //    collidingWith.Remove(collision.gameObject);
             isInLadder--;
             GetComponent<Rigidbody2D>().gravityScale = gravityScale;
         }
@@ -156,28 +190,32 @@ public class PlayerMovment : MonoBehaviour
     //    }
     //}
 
-    public bool ShouldLaddersMaterialize(GameObject ladderWhichIsChecking)
-    {
-        bool val = !IsHoldingDown() && !LadderColliding();
-        if (collidingWith.Contains(ladderWhichIsChecking) && val == true)
-        {
-            isInLadder = 0;
-            GetComponent<Rigidbody2D>().gravityScale = gravityScale;
-        }
-        return (val);
-    }
+    //public bool ShouldLaddersMaterialize(GameObject ladderWhichIsChecking)
+    //{
+    //    bool val = !IsHoldingDown() && !LadderColliding();
+    //    if (collidingWith.Contains(ladderWhichIsChecking) && val == true)
+    //    {
+    //        isInLadder = 0;
+    //        GetComponent<Rigidbody2D>().gravityScale = gravityScale;
+    //    }
+    //    return (val);
+    //}
 
-    public bool IsHoldingDown()
-    {
-        bool val = Input.GetAxisRaw("Vertical") == -1;
-        Debug.Log("Is holding down - " + val);
-        return val;
-    }
+    //public bool IsHoldingDown()
+    //{
+    //    bool val = Input.GetAxisRaw("Vertical") == -1;
+    //    Debug.Log("Is holding down - " + val);
+    //    return val;
+    //}
 
-    public bool LadderColliding()
+    //public bool LadderColliding()
+    //{
+    //    bool val = myLadderCollider.IsCollidingWithLadder;
+    //    Debug.Log("Is Colliding with ladder - " + val);
+    //    return val;
+    //}
+    bool IsInLadder()
     {
-        bool val = myLadderCollider.IsCollidingWithLadder;
-        Debug.Log("Is Colliding with ladder - " + val);
-        return val;
+        return isInLadder != 0;
     }
 }

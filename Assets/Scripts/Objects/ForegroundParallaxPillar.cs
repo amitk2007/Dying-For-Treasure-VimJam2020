@@ -12,6 +12,8 @@ public class ForegroundParallaxPillar : MonoBehaviour
     private void Start()
     {
         offset = this.transform.position;
+        if (trackedObject == null)
+            trackedObject = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
     }
 
     // Update is called once per frame

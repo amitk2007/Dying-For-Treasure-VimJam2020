@@ -8,11 +8,15 @@ using UnityEngine.UI;
 //It should be attached to player object, and its healthSliderUI field should contain the health slider object (dragged into field in Editor)
 public class PlayerHealth : MonoBehaviour
 {
+    public static bool isPlayerLive = true;
+
     [SerializeField] private int maxLife = 10;// Field is serialized so health can be changed if needed
     [SerializeField] private float InvinsibilityTime = 1f;//Field is serialized so value can be changed if needed
+    [SerializeField] private Slider healthSliderUI; //In Editor, slider object should be dragged in here.
+
     private float invinsibilityTimer = 0f;
     private int currentLife = 0;
-    [SerializeField] private Slider healthSliderUI; //In Editor, slider object should be dragged in here.
+
     private WinLoseManager myWinLoseManager;
     private PlayerCanvasAnimationManager myPlayerCanvasAnimationmanager;
     private PlayerAnimationManager myPlayerAnimationmanager;

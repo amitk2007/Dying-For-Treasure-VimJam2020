@@ -15,7 +15,7 @@ public class CharacterController : MonoBehaviour
 
     [SerializeField] const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 
-    private bool m_Grounded;            // Whether or not the player is grounded.
+    public bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -64,7 +64,7 @@ public class CharacterController : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(m_GroundCheck.position, k_GroundedRadius, m_WhatIsGround);
         for (int i = 0; i < colliders.Length; i++)
         {
-            if (colliders[i].gameObject != gameObject && colliders[i].transform.parent != transform)
+            if (colliders[i].gameObject != gameObject) //&& colliders[i].transform.parent != transform)
             {
                 m_Grounded = true;
                 if (!wasGrounded)
@@ -140,7 +140,7 @@ public class CharacterController : MonoBehaviour
         // If the player should jump...
         if (m_Grounded && jump) ///Already checked for grounded in PlayerMovment Class
         {
-            Debug.Log("Player should jump because he's grounded and jump was pressed!");
+            //Debug.Log("Player should jump because he's grounded and jump was pressed!");
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, Input.GetButton("Crouch") ? -m_JumpForce : m_JumpForce));
